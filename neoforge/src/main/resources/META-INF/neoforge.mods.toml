@@ -1,26 +1,25 @@
 modLoader = "javafml"
 loaderVersion = "[1,)"
-issueTrackerURL = "https://github.com/Cosmetica-cc/Cosmetica-2/issues"
 license = "Apache 2.0"
 
 [[mods]]
-modId = "cosmetica"
+modId = "zlcosmetics"
 version = "${version}"
-displayName = "Cosmetica"
-authors = "Valoeghese, Eyezah"
+displayName = "ZlCosmetics"
+authors = "Zirox, Simon, Zenox"
 description = '''
 Custom Cosmetics for Free, Forever.
 '''
-logoFile = "assets/cosmetica/icon.png"
+logoFile = "assets/zlcosmetics/icon.png"
 
-[[dependencies.cosmetica]]
+[[dependencies.zlcosmetics]]
 modId = "neoforge"
 type = "required"
 versionRange = "[1,)"
 ordering = "NONE"
 side = "BOTH"
 
-[[dependencies.cosmetica]]
+[[dependencies.zlcosmetics]]
 modId = "minecraft"
 type = "required"
 versionRange = "[1.21.4,1.21.7)"
@@ -28,7 +27,7 @@ ordering = "NONE"
 side = "BOTH"
 
 [[mixins]]
-config = "cosmetica-common.mixins.json"
+config = "zlcosmetics-common.mixins.json"
 
 [[mixins]]
-config = "cosmetica-neoforge.mixins.json"
+config = "zlcosmetics-neoforge.mixins.json"
