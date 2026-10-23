@@ -38,26 +38,26 @@ public abstract class RemotePlayerMixin extends AbstractClientPlayer implements 
     }
 
     @Unique
-    private final State<Cosmetics> cosmetica$noCosmetics = new State<>(null);
+    private final State<Cosmetics> zlcosmetics$noCosmetics = new State<>(null);
 
     @Override
-    public State<@Nullable Cosmetics> cosmetica$getCosmeticState() {
+    public State<@Nullable Cosmetics> zlcosmetics$getCosmeticState() {
         if (Minecraft.getInstance().player == null)
-            return cosmetica$noCosmetics;
+            return zlcosmetics$noCosmetics;
 
         ClientPacketListener connection = Minecraft.getInstance().player.connection;
         PlayerInfo info = connection.getPlayerInfo(this.getUUID());
 
         if (info != null) {
-            return ((StateHolder) info).cosmetica$getCosmeticState();
+            return ((StateHolder) info).zlcosmetics$getCosmeticState();
         } else {
             Logging.getInstance().warnOnce("remotePlayerInfoNullState", "Remote Player " + this.getUUID() + " had associated Player Info == null while retrieving state?");
-            return cosmetica$noCosmetics;
+            return zlcosmetics$noCosmetics;
         }
     }
 
     @Override
-    public void cosmetica$setCosmeticState(@Nullable Cosmetics cosmetics) {
+    public void zlcosmetics$setCosmeticState(@Nullable Cosmetics cosmetics) {
         if (Minecraft.getInstance().player == null)
             return;
 
@@ -65,7 +65,7 @@ public abstract class RemotePlayerMixin extends AbstractClientPlayer implements 
         PlayerInfo info = connection.getPlayerInfo(this.getUUID());
 
         if (info != null) {
-            ((StateHolder) info).cosmetica$setCosmeticState(cosmetics);
+            ((StateHolder) info).zlcosmetics$setCosmeticState(cosmetics);
         } else {
             Logging.getInstance().warnOnce("remotePlayerInfoNullState", "Remote Player " + this.getUUID() + " had associated Player Info == null while setting state?");
         }

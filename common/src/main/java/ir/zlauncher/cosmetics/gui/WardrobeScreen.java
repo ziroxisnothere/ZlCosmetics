@@ -97,7 +97,7 @@ public class WardrobeScreen extends Component implements AnimatedTextureScreen {
                                 .set(BACKGROUND_COLOUR, OptionalInt.empty())),
                         // Don't rebuild whole screen to enable/disable the buttons
                         new Div(
-                                new Button(Text.translatable("button.cosmetica.renameOutfit"), () -> {
+                                new Button(Text.translatable("button.zlcosmetics.renameOutfit"), () -> {
                                     String selected = Cosmetica.SELECTED_OUTFIT_ID.peek().orElseThrow(() -> new IllegalStateException("No outfit selected"));
                                     for (OutfitWheelScreen.OutfitOption option : options) {
                                         if (option.id.equals(selected)) {
@@ -122,10 +122,10 @@ public class WardrobeScreen extends Component implements AnimatedTextureScreen {
 
                                         return new Stylesheet()
                                                 .self(Style.create()
-                                                        .set(TOOLTIP, isOutfitSelected ? Optional.empty() : Optional.of(new Tooltip(Text.translatable("tooltip.cosmetica.noOutfitDisabled")))));
+                                                        .set(TOOLTIP, isOutfitSelected ? Optional.empty() : Optional.of(new Tooltip(Text.translatable("tooltip.zlcosmetics.noOutfitDisabled")))));
                                     }
                                 }.tag("button", "small-button"),
-                                new Button(Text.translatable("button.cosmetica.clearOutfit"), OutfitWheelScreen::clearOutfit) {
+                                new Button(Text.translatable("button.zlcosmetics.clearOutfit"), OutfitWheelScreen::clearOutfit) {
                                     @Override
                                     public List<Component> build() {
                                         boolean equippedOutfit = Cosmetica.SELECTED_OUTFIT_ID.extract(this, Optional::isPresent);
@@ -142,7 +142,7 @@ public class WardrobeScreen extends Component implements AnimatedTextureScreen {
                                     }
                                 }.tag("button", "small-button")
                         ).tag("button-wrapper"),
-                        new Button(Text.translatable("button.cosmetica.newOutfit"), ()->Screens.setScreen(CreateOutfitScreen.ID)) {
+                        new Button(Text.translatable("button.zlcosmetics.newOutfit"), ()->Screens.setScreen(CreateOutfitScreen.ID)) {
                             @Override
                             public List<Component> build() {
                                 int limit = outfitLimit.acquire(this);
@@ -162,7 +162,7 @@ public class WardrobeScreen extends Component implements AnimatedTextureScreen {
                 .tag("body", Screen.BODY_DEFAULT_STYLE)
                 .tag("title", Screen.TITLE_DEFAULT_STYLE)
                 .tag("body", Style.create()
-                        // 15(title margin) + 6(related to text height) + 6 (text height 2) + 3 (magic, see https://tinyurl.com/3uv5s8uy)
+                        // 15(title margin) + 6(related to text height) + 6 (text height 2) + 3 (magic)
                         .set(MARGINS, fixed(new Margins(15 + 6 + 3 + 6, 0, 0, 0))))
                 .component(SelectableOutfit.class, Style.create()
                         .set(WIDTH, fixed(OptionalInt.of(69 * 2/3)))
@@ -176,8 +176,8 @@ public class WardrobeScreen extends Component implements AnimatedTextureScreen {
                         .set(FLEX_SHRINK, 0));
     }
 
-    public static final ResourceKey ID = new ResourceKey("cosmetica", "outfit_select");
-    public static final ResourceKey NEW_OUTFIT_ICON = new ResourceKey("cosmetica", "textures/new_outfit.png");
+    public static final ResourceKey ID = new ResourceKey("zlcosmetics", "outfit_select");
+    public static final ResourceKey NEW_OUTFIT_ICON = new ResourceKey("zlcosmetics", "textures/new_outfit.png");
 
     private static SelectableOutfit find(SelectableOutfit[] components, String id) {
         if (id.isEmpty()) return null;
@@ -207,7 +207,7 @@ public class WardrobeScreen extends Component implements AnimatedTextureScreen {
 
         @Override
         public List<Component> build() {
-            final ResourceKey deleteTexture = new ResourceKey("cosmetica", "textures/button/remove.png");
+            final ResourceKey deleteTexture = new ResourceKey("zlcosmetics", "textures/button/remove.png");
 
             return Arrays.asList(
                     new Image(new ResourceKey(option.thumbnail.location))
@@ -223,7 +223,7 @@ public class WardrobeScreen extends Component implements AnimatedTextureScreen {
                         Screens.setScreen(new ConfirmRemoveOutfitScreen(
                                 SelectableOutfit.this.option.id,
                                 SelectableOutfit.this.option.name
-                        ), Text.translatable("screens.cosmetica.confirmDeletion"));
+                        ), Text.translatable("screens.zlcosmetics.confirmDeletion"));
                     }) {
                         @Override
                         protected boolean canDrawDelete() {
@@ -308,7 +308,7 @@ public class WardrobeScreen extends Component implements AnimatedTextureScreen {
             ).tag("delete-button",
                     Style.create()
                             .set(MARGINS, fixed(new Margins(0, 0, 69-deleteButtonSize, 69*2/3 - deleteButtonSize)))
-                            .set(TOOLTIP, Optional.of(new HideableTooltip(Text.translatable("tooltip.cosmetica.deleteOutfit", this.option.name)))));
+                            .set(TOOLTIP, Optional.of(new HideableTooltip(Text.translatable("tooltip.zlcosmetics.deleteOutfit", this.option.name)))));
         }
 
         public void paintDecorations(Canvas canvas, Region region, Region scissorRegion, int mouseX, int mouseY) {

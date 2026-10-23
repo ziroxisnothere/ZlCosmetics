@@ -64,7 +64,7 @@ public class CycleButton<T> extends Div {
                 .setDisabled(this.setting.getManagement() != Setting.Management.USER)
                 .withStyle(
                         Style.create().set(CommonProperties.TOOLTIP, this.setting.getManagement() == Setting.Management.MODPACK ?
-                                Optional.of(new Tooltip(Text.translatable("tooltip.cosmetica.modpack_managed"))) :
+                                Optional.of(new Tooltip(Text.translatable("tooltip.zlcosmetics.modpack_managed"))) :
                                 Optional.empty())
                 ));
     }

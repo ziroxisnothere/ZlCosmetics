@@ -37,7 +37,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Keybinds {
-    public static final String COSMETICA_CATEGORY = "key.categories.cosmetica";
+    public static final String COSMETICA_CATEGORY = "key.categories.zlcosmetics";
 
     /**
      * Keymappings that shouldn't conflict (allow duplicates).
@@ -53,7 +53,7 @@ public class Keybinds {
      */
     private static KeyMapping registerSpecial(InputConstants.Key defaultKey, String id) {
         KeyMapping mapping = new KeyMapping(
-                "key.cosmetica." + id,
+                "key.zlcosmetics." + id,
                 // register it to unknown on the original map
                 InputConstants.Type.KEYSYM,
                 InputConstants.UNKNOWN.getValue(),
@@ -66,7 +66,7 @@ public class Keybinds {
     }
 
     public static KeyMapping CUSTOMISE = new KeyMapping(
-                    "key.cosmetica.customise",
+                    "key.zlcosmetics.customise",
                     InputConstants.Type.KEYSYM,
                     GLFW.GLFW_KEY_RIGHT_SHIFT,
                     COSMETICA_CATEGORY
@@ -78,7 +78,7 @@ public class Keybinds {
     );
 
     public static KeyMapping SELECT_OUTFIT = new KeyMapping(
-            "key.cosmetica.select_outfit",
+            "key.zlcosmetics.select_outfit",
             InputConstants.Type.KEYSYM,
             GLFW.GLFW_KEY_GRAVE_ACCENT,
             COSMETICA_CATEGORY

@@ -59,7 +59,7 @@ public class OutfitSelectAnvilScreen extends Component implements AnimatedTextur
         return Arrays.asList(
                 new Div(
                         new Label(this.title),
-                        new Label(Text.translatable("screens.cosmetica.outfit_select_anvil.description"))
+                        new Label(Text.translatable("screens.zlcosmetics.outfit_select_anvil.description"))
                 ).tag("title"),
                 new Div(
                         new EntryList.Grid(
@@ -91,8 +91,8 @@ public class OutfitSelectAnvilScreen extends Component implements AnimatedTextur
                         .set(HEIGHT, fixed(OptionalInt.of(69))));
     }
 
-    public static final ResourceKey ID = new ResourceKey("cosmetica", "outfit_select_anvil");
-    public static final ResourceKey NEW_OUTFIT_ICON = new ResourceKey("cosmetica", "textures/new_outfit.png");
+    public static final ResourceKey ID = new ResourceKey("zlcosmetics", "outfit_select_anvil");
+    public static final ResourceKey NEW_OUTFIT_ICON = new ResourceKey("zlcosmetics", "textures/new_outfit.png");
 
     private static SelectableOutfitA find(SelectableOutfitA[] components, String id) {
         if (id.isEmpty()) return null;
@@ -133,7 +133,7 @@ public class OutfitSelectAnvilScreen extends Component implements AnimatedTextur
             // play click sound
             GuiUtils.playClick();
             // Set ID and close this screen
-            OutfitSelectAnvilScreen.this.anvil.cosmetica$setNewName(this.option.id.replaceAll("-", ""));
+            OutfitSelectAnvilScreen.this.anvil.zlcosmetics$setNewName(this.option.id.replaceAll("-", ""));
             Screens.closeCurrentScreen();
         }
 
@@ -168,6 +168,6 @@ public class OutfitSelectAnvilScreen extends Component implements AnimatedTextur
     }
 
     public interface NametaggableAnvil {
-        void cosmetica$setNewName(String name);
+        void zlcosmetics$setNewName(String name);
     }
 }

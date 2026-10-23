@@ -31,5 +31,5 @@ public interface KeyMappingAccessor {
      * @return the key.
      */
     @Accessor("key")
-    InputConstants.Key cosmetica$getKey();
+    InputConstants.Key zlcosmetics$getKey();
 }

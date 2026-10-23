@@ -44,18 +44,18 @@ import java.util.List;
 public class FakePlayerRendererMixin {
     @Shadow public List<GUIPlayer.Nametag> nametags;
 
-    @Unique private @Nullable CachedImage cosmetica$icon0 = null;
-    @Unique private boolean cosmetica$iconTransparent = false;
-    @Unique private @Nullable CachedImage cosmetica$icon1 = null;
+    @Unique private @Nullable CachedImage zlcosmetics$icon0 = null;
+    @Unique private boolean zlcosmetics$iconTransparent = false;
+    @Unique private @Nullable CachedImage zlcosmetics$icon1 = null;
 
     @Inject(at = @At("HEAD"), method = "drawLivingEntity", remap = false)
     private void onDrawLiving(GUIPlayer player, Context context, float rotation, float delta, PoseStack stack,
                               MultiBufferSource bufferSource, int light, CallbackInfo ci) {
         if (player instanceof RotatableGUIPlayer) {
             // don't need to reset to null provided one renderer per gui player.
-            this.cosmetica$icon0 = ((RotatableGUIPlayer)player).icon;
-            this.cosmetica$iconTransparent = ((RotatableGUIPlayer) player).hasTransparentIcon();
-            this.cosmetica$icon1 = ((RotatableGUIPlayer)player).loreIcon;
+            this.zlcosmetics$icon0 = ((RotatableGUIPlayer)player).icon;
+            this.zlcosmetics$iconTransparent = ((RotatableGUIPlayer) player).hasTransparentIcon();
+            this.zlcosmetics$icon1 = ((RotatableGUIPlayer)player).loreIcon;
         }
     }
 
@@ -81,12 +81,12 @@ public class FakePlayerRendererMixin {
     private void onRenderNametag(GUIPlayer.Nametag nametag, Canvas canvas, MultiBufferSource bufferSource,
                                  int packedLight, CallbackInfo ci) {
         if (nametag == nametags.get(0)) {
-            if (cosmetica$icon0 != null) {
-                NametagRenderer.prepareIcon(cosmetica$icon0, 2, this.cosmetica$iconTransparent, true);
+            if (zlcosmetics$icon0 != null) {
+                NametagRenderer.prepareIcon(zlcosmetics$icon0, 2, this.zlcosmetics$iconTransparent, true);
             }
         } else if (nametags.size() > 1 && nametag == nametags.get(1)) {
-            if (cosmetica$icon1 != null) {
-                NametagRenderer.prepareIcon(cosmetica$icon1, 2, false, true);
+            if (zlcosmetics$icon1 != null) {
+                NametagRenderer.prepareIcon(zlcosmetics$icon1, 2, false, true);
             }
         }
     }

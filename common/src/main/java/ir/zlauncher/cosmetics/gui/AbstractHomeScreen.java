@@ -27,7 +27,6 @@ import cc.cosmetica.core.impl.Logging;
 import cc.cosmetica.core.util.LifetimeResources;
 import ir.zlauncher.cosmetics.Cosmetica;
 import ir.zlauncher.cosmetics.gui.player.AccessoriesAttachment;
-import ir.zlauncher.cosmetics.gui.widget.ExternalURLButton;
 import ir.zlauncher.cosmetics.gui.widget.IconButton;
 import ir.zlauncher.cosmetics.gui.widget.MenuEndSelection;
 import ir.zlauncher.cosmetics.gui.widget.OutfitPlayer;
@@ -102,35 +101,25 @@ public abstract class AbstractHomeScreen extends Screen implements AnimatedTextu
         // left side + separator
         List<Component> buttons = new ArrayList<>(Arrays.asList(
                 new IconButton(
-                        new ResourceKey("cosmetica", "textures/button/gear.png"),
+                        new ResourceKey("zlcosmetics", "textures/button/gear.png"),
                         () -> Screens.setScreen(new CosmeticaSettingsScreen(CosmeticaSettingsScreen.SETTINGS_SCREEN, CosmeticaSettings.DISPLAY_SETTINGS), CosmeticaSettingsScreen.SETTINGS_SCREEN)),
                 new IconButton(
-                        new ResourceKey("cosmetica", "textures/button/external_capes.png"),
+                        new ResourceKey("zlcosmetics", "textures/button/external_capes.png"),
                         () -> Screens.setScreen(new ExternalCapesScreen(CosmeticaSettings.externalCapeSettings), ExternalCapesScreen.ID))
                         .setDisabled(!authenticated)
                         .withStyle(Cosmetica.authTooltipStyle(authenticated)),
                 new IconButton(
-                        new ResourceKey("cosmetica", "textures/button/lore.png"),
+                        new ResourceKey("zlcosmetics", "textures/button/lore.png"),
                         () -> Screens.setScreen(StyleNametagScreen.ID))
                         .setDisabled(!authenticated)
                         .withStyle(Cosmetica.authTooltipStyle(authenticated)),
                 new Div().withStyle(Style.create().set(FLEX, 1))
         ));
 
-        // only show discord button when authenticated
-        if (authenticated || Cosmetica.isMojangAuthenticated()) {
-            buttons.add(
-                    new ExternalURLButton(
-                            new ResourceKey("cosmetica", "textures/button/discord.png"),
-                            "https://discord.com/invite/cosmetica-942587512008888420",
-                            new Tooltip(Text.translatable("tooltip.cosmetica.discord")))
-            );
-        }
-
         // Reload button
         buttons.add(
                 new IconButton(
-                    new ResourceKey("cosmetica", "textures/button/reload.png"),
+                    new ResourceKey("zlcosmetics", "textures/button/reload.png"),
                     () -> {
                         Logging.getInstance().info("Reloading all cosmetics");
                         reloadDisabled.set(true);
@@ -182,7 +171,7 @@ public abstract class AbstractHomeScreen extends Screen implements AnimatedTextu
                     setDisabled(disabled);
                     return ImmutableList.of();
                 }
-            }.withStyle(Style.create().set(TOOLTIP, Optional.of(new Tooltip(Text.translatable("tooltip.cosmetica.reloadCosmetics")))))
+            }.withStyle(Style.create().set(TOOLTIP, Optional.of(new Tooltip(Text.translatable("tooltip.zlcosmetics.reloadCosmetics")))))
         );
 
         return buttons.toArray(new Component[0]);

@@ -58,7 +58,7 @@ import java.util.Optional;
  */
 public class OutfitWheelScreen extends Screen {
     public OutfitWheelScreen() {
-        super(Text.translatable("screens.cosmetica.wheel").toMinecraftComponent());
+        super(Text.translatable("screens.zlcosmetics.wheel").toMinecraftComponent());
         // todo maybe implement this as kupe screen so we can update outfit list automatically on outfit change
         this.options = Arrays.asList();
         this.passEvents = true;
@@ -576,7 +576,7 @@ public class OutfitWheelScreen extends Screen {
             return false;
         }
 
-        InputConstants.Key key = ((KeyMappingAccessor)mapping).cosmetica$getKey();
+        InputConstants.Key key = ((KeyMappingAccessor)mapping).zlcosmetics$getKey();
         long window = Minecraft.getInstance().getWindow().getWindow();
         int value = key.getValue();
 

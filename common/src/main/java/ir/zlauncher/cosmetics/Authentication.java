@@ -59,14 +59,14 @@ import static ir.zlauncher.cosmetics.settings.CosmeticaSettings.willApplyLocalSe
  * Handles authentication.
  */
 public final class Authentication {
-    private static final ResourceLocation SESSIONS = new ResourceLocation("cosmetica", ".sessions");
+    private static final ResourceLocation SESSIONS = new ResourceLocation("zlcosmetics", ".sessions");
     private static final ScheduledExecutorService LOGIN_SCHEDULER = LifetimeResources.newScheduler(1, new ThreadFactory() {
         private int counter = 1;
 
         @Override
         public Thread newThread(@NotNull Runnable r) {
             Thread t = new Thread(r);
-            t.setName("Cosmetica Login Worker " + (counter++));
+            t.setName("ZlCosmetics Login Worker " + (counter++));
             return t;
         }
     });
@@ -90,8 +90,8 @@ public final class Authentication {
                 if (reason == CosmeticaAPI.AuthChangeReason.OFFLINE) {
                     if (Authentication.everAuthenticated.get()) {
                         Cosmetica.showToast(
-                                Text.translatable("toast.cosmetica.disconnected"),
-                                Text.translatable("toast.cosmetica.disconnected.message")
+                                Text.translatable("toast.zlcosmetics.disconnected"),
+                                Text.translatable("toast.zlcosmetics.disconnected.message")
                         );
 
                         Authentication.showedUnauthenticatedToast.set(true);
@@ -113,7 +113,7 @@ public final class Authentication {
             }
 
             // Allow manual token setting for testing
-            if (!System.getProperties().containsKey("cosmetica.token")) {
+            if (!System.getProperties().containsKey("zlcosmetics.token")) {
                 boolean startAuth = false;
 
                 synchronized (lock) {
@@ -128,7 +128,7 @@ public final class Authentication {
 
                         if (showedUnauthenticatedToast.compareAndSet(true, false)) {
                             Cosmetica.showToast(
-                                    Text.translatable("toast.cosmetica.reconnected"),
+                                    Text.translatable("toast.zlcosmetics.reconnected"),
                                     null
                             );
                         }
@@ -142,7 +142,7 @@ public final class Authentication {
         });
 
         // cosmetica.token is used by core as for testing. we want to keep this behaviour for our testing.
-        if (!System.getProperties().containsKey("cosmetica.token")) {
+        if (!System.getProperties().containsKey("zlcosmetics.token")) {
             authenticating = true;
             startAuthentication();
         }
@@ -160,7 +160,7 @@ public final class Authentication {
         try {
             login = logInFromCache(sessionsInfo, properties);
         } catch (IOException e) {
-            Logging.getInstance().error("Failed to log into Cosmetica via cache", e);
+            Logging.getInstance().error("Failed to log into ZlCosmetics via cache", e);
         }
 
         if (!login) {
@@ -173,7 +173,7 @@ public final class Authentication {
     }
 
     private static void invalidateToken() {
-        Logging.getInstance().info("Cosmetica authentication has expired. Will reauthenticate!");
+        Logging.getInstance().info("ZlCosmetics authentication has expired. Will reauthenticate!");
 
         // Get file location and ensure it's valid
         Path sessionsInfo = BlockModelManager.getCacheFile(SESSIONS, null);
@@ -188,7 +188,7 @@ public final class Authentication {
         try (BufferedInputStream b = new BufferedInputStream(Files.newInputStream(sessionsInfo))) {
             properties.load(b);
         } catch (IOException e) {
-            Logging.getInstance().error("Failed to load cosmetica sessions", e);
+            Logging.getInstance().error("Failed to load zlcosmetics sessions", e);
             return;
         }
 
@@ -199,10 +199,10 @@ public final class Authentication {
 
         // Store
         try (BufferedOutputStream boss = new BufferedOutputStream(Files.newOutputStream(sessionsInfo))) {
-            properties.store(boss, "Cosmetica Session Info");
+            properties.store(boss, "ZlCosmetics Session Info");
             Logging.getInstance().debug(CosmeticaLogCategory.LOGIN, "Invalidated token");
         } catch (IOException e) {
-            Logging.getInstance().error("Failed to save cosmetica sessions", e);
+            Logging.getInstance().error("Failed to save zlcosmetics sessions", e);
         }
     }
 
@@ -220,7 +220,7 @@ public final class Authentication {
 
             int retries = RETRIES.getAndIncrement();
             if (retries >= retryCounts.length) {
-                Logging.getInstance().info("Retrying cosmetica login in {} seconds", retryCounts[retryCounts.length - 1]);
+                Logging.getInstance().info("Retrying zlcosmetics login in {} seconds", retryCounts[retryCounts.length - 1]);
                 LOGIN_SCHEDULER.schedule(
                         () -> Authentication.repeatLogInFromApi(sessionsInfo, properties),
                         retryCounts[retryCounts.length - 1],
@@ -232,7 +232,7 @@ public final class Authentication {
                     SelfCosmeticManager.clear();
                 }
 
-                Logging.getInstance().info("Retrying cosmetica login in {} seconds", retryCounts[retries]);
+                Logging.getInstance().info("Retrying zlcosmetics login in {} seconds", retryCounts[retries]);
                 LOGIN_SCHEDULER.schedule(
                         () -> Authentication.repeatLogInFromApi(sessionsInfo, properties),
                         retryCounts[retries],
@@ -291,7 +291,7 @@ public final class Authentication {
      * @return whether the current login was a success.
      */
     private static boolean logInFromApi(Path sessionInfoPath, Properties sessionInfo) {
-        Logging.getInstance().debug(CosmeticaLogCategory.LOGIN, "Logging in to Cosmetica...");
+        Logging.getInstance().debug(CosmeticaLogCategory.LOGIN, "Logging in to ZlCosmetics...");
 
         try {
             LoginResult result = CosmeticaAPI.login("Cosmetica Official Mod", !willApplyLocalSettings(), CosmeticaSettings.MODPACK_ID.peek());
@@ -320,7 +320,7 @@ public final class Authentication {
                     sessionInfo.setProperty(jwtKey(user.getUuid()), token);
 
                     try (BufferedOutputStream b = new BufferedOutputStream(Files.newOutputStream(sessionInfoPath))) {
-                        sessionInfo.store(b, "Cosmetica Session Info");
+                        sessionInfo.store(b, "ZlCosmetics Session Info");
                     }
                 }
 

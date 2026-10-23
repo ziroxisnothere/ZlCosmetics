@@ -116,7 +116,7 @@ public abstract class AbstractOutfitEditScreen extends Screen {
 
                                             if (code == 404) {
                                                 Cosmetica.showToast(
-                                                        Text.translatable("toast.cosmetica.outfit404"),
+                                                        Text.translatable("toast.zlcosmetics.outfit404"),
                                                         null
                                                 );
                                             } else {
@@ -149,7 +149,7 @@ public abstract class AbstractOutfitEditScreen extends Screen {
         final int nameMinChars = 3;
 
         if (name.length() < nameMinChars) {
-            return Optional.of(Text.translatable("tooltip.cosmetica.notLongEnough"));
+            return Optional.of(Text.translatable("tooltip.zlcosmetics.notLongEnough"));
         }
 
         return Optional.empty();

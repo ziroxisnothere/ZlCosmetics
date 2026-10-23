@@ -158,7 +158,7 @@ public class CosmeticaSettingsScreen extends Screen {
         }
     }
 
-    public static final ResourceKey SETTINGS_SCREEN = new ResourceKey("cosmetica", "settings");
+    public static final ResourceKey SETTINGS_SCREEN = new ResourceKey("zlcosmetics", "settings");
 
     static void updateCosmeticsAndSettings(CosmeticaUser user) {
         if (user.getExternalCape() == null && (user.getOutfit() == null || user.getOutfit().getElytra() == null || user.getOutfit().getCloak() == null)) {

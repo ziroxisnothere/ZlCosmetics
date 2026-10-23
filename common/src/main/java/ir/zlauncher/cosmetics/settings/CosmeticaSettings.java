@@ -55,13 +55,13 @@ public final class CosmeticaSettings {
     }
 
     // Client profile settings
-    public static final Setting<Boolean> TOGGLE_OUTFIT_WHEEL = new BooleanSetting("setting.cosmetica.wheel", false, false);
-    public static final Setting<Boolean> VERSION_CHECKER = new BooleanSetting("setting.cosmetica.versionChecker", true, true);
-    public static final Setting<Boolean> SHOW_OWN_NAMETAG = new BooleanSetting("setting.cosmetica.showOwnNametag", true, true);
+    public static final Setting<Boolean> TOGGLE_OUTFIT_WHEEL = new BooleanSetting("setting.zlcosmetics.wheel", false, false);
+    public static final Setting<Boolean> VERSION_CHECKER = new BooleanSetting("setting.zlcosmetics.versionChecker", true, true);
+    public static final Setting<Boolean> SHOW_OWN_NAMETAG = new BooleanSetting("setting.zlcosmetics.showOwnNametag", true, true);
     /**
      * In a modpack with managed settings, use cloud settings instead.
      */
-    public static final Setting<Boolean> USE_CLOUD_SETTINGS = new BooleanSetting("setting.cosmetica.useCloudSettings", false, true) {
+    public static final Setting<Boolean> USE_CLOUD_SETTINGS = new BooleanSetting("setting.zlcosmetics.useCloudSettings", false, true) {
         @Override
         public Component createController() {
             // Will reload when all settings load so doesn't need to update itself (or any other settings)
@@ -97,7 +97,7 @@ public final class CosmeticaSettings {
                             ).setDisabled(isDisabled)
                                     .withStyle(Style.create()
                                             .set(TOOLTIP, !isDisabled ? Optional.empty() : Optional.of(
-                                                    new Tooltip(Text.translatable("tooltip.cosmetica.updatingSettings"))
+                                                    new Tooltip(Text.translatable("tooltip.zlcosmetics.updatingSettings"))
                                             )))
                     );
                 }
@@ -107,23 +107,23 @@ public final class CosmeticaSettings {
 
     // Internal settings
     // - from api
-    public static final Setting<Boolean> DISABLE_RSE_PROMPT = new BooleanSetting("setting.cosmetica.disableRSEPrompt", false, true);
+    public static final Setting<Boolean> DISABLE_RSE_PROMPT = new BooleanSetting("setting.zlcosmetics.disableRSEPrompt", false, true);
     // - from local settings
     public static final State<@org.jetbrains.annotations.Nullable String> MODPACK_ID = new State<>(null);
     public static final State<Boolean> SHOW_ANVIL_BUTTON = new State<>(true);
 
     // API Settings
-    public static final Setting<Boolean> USE_MODPACK_ICONS = new BooleanSetting("setting.cosmetica.useModpackIcons", true, true);
-    public static final Setting<Boolean> SHOW_ACCESSORIES = new BooleanSetting("setting.cosmetica.showAccessories", true, true);
-    public static final Setting<Boolean> SHOW_LORE = new BooleanSetting("setting.cosmetica.showLore", true, true);
-    public static final Setting<Boolean> SHOW_SPECIAL_ICONS = new BooleanSetting("setting.cosmetica.showSpecialIcons", true, true)
+    public static final Setting<Boolean> USE_MODPACK_ICONS = new BooleanSetting("setting.zlcosmetics.useModpackIcons", true, true);
+    public static final Setting<Boolean> SHOW_ACCESSORIES = new BooleanSetting("setting.zlcosmetics.showAccessories", true, true);
+    public static final Setting<Boolean> SHOW_LORE = new BooleanSetting("setting.zlcosmetics.showLore", true, true);
+    public static final Setting<Boolean> SHOW_SPECIAL_ICONS = new BooleanSetting("setting.zlcosmetics.showSpecialIcons", true, true)
             .forceWhenOff(USE_MODPACK_ICONS, false);
-    public static final Setting<Boolean> SHOW_OFFLINE_ICONS = new BooleanSetting("setting.cosmetica.showOfflineIcons", true, true);
-    public static final Setting<Boolean> SHOW_ICONS = new BooleanSetting("setting.cosmetica.showIcons", true, true)
+    public static final Setting<Boolean> SHOW_OFFLINE_ICONS = new BooleanSetting("setting.zlcosmetics.showOfflineIcons", true, true);
+    public static final Setting<Boolean> SHOW_ICONS = new BooleanSetting("setting.zlcosmetics.showIcons", true, true)
             .forceWhenOff(SHOW_SPECIAL_ICONS, false)
             .forceWhenOff(SHOW_OFFLINE_ICONS, false);
-    public static final Setting<Boolean> SHOW_ONLINE_ACTIVITY = new BooleanSetting("setting.cosmetica.showOnlineActivity", true, true);
-    public static final Setting<Boolean> VISIBILITY_OVERRIDES = new BooleanSetting("setting.cosmetica.visibilityOverrides", true, true);
+    public static final Setting<Boolean> SHOW_ONLINE_ACTIVITY = new BooleanSetting("setting.zlcosmetics.showOnlineActivity", true, true);
+    public static final Setting<Boolean> VISIBILITY_OVERRIDES = new BooleanSetting("setting.zlcosmetics.visibilityOverrides", true, true);
 
     public static final List<Setting<?>> CLIENT_SETTINGS = new ArrayList<>(Arrays.asList(TOGGLE_OUTFIT_WHEEL, SHOW_OWN_NAMETAG, USE_CLOUD_SETTINGS));
     public static final List<Setting<?>> API_SETTINGS = ImmutableList.of(
@@ -180,12 +180,12 @@ public final class CosmeticaSettings {
     }
 
     public static void refreshLocalSettings() {
-        Path localDir = CosmeticaCoreExpectPlatform.getConfigDirectory().resolve("cosmetica");
+        Path localDir = CosmeticaCoreExpectPlatform.getConfigDirectory().resolve("zlcosmetics");
 
         try {
             Files.createDirectories(localDir);
         } catch (IOException e) {
-            Logging.getInstance().error("Error creating cosmetica config directory", e);
+            Logging.getInstance().error("Error creating zlcosmetics config directory", e);
         }
 
         UpdateLocalSettingsDto newModpackSettings = readModpackSettings(localDir);
@@ -195,7 +195,7 @@ public final class CosmeticaSettings {
             modpackSettings = newModpackSettings;
         }
 
-        Path file = localDir.resolve("cosmetica.properties");
+        Path file = localDir.resolve("zlcosmetics.properties");
         Properties properties = new Properties();
 
         // Default properties
@@ -210,9 +210,9 @@ public final class CosmeticaSettings {
             try (BufferedReader reader = Files.newBufferedReader(file)) {
                 properties.load(reader);
             } catch (NoSuchFileException e) {
-                Logging.getInstance().info("cosmetica.properties does not exist yet");
+                Logging.getInstance().info("zlcosmetics.properties does not exist yet");
             } catch (IOException e) {
-                Logging.getInstance().error("Error reading cosmetica.properties", e);
+                Logging.getInstance().error("Error reading zlcosmetics.properties", e);
                 return; // don't over-write? file system probably restricted somehow
             }
 
@@ -228,10 +228,10 @@ public final class CosmeticaSettings {
 
         // Write properties to file
         try (BufferedWriter writer = Files.newBufferedWriter(file)) {
-            Logging.getInstance().debug(CosmeticaLogCategory.SETTINGS, "Saving cosmetica.properties");
-            properties.store(writer, "Per-profile cosmetica settings");
+            Logging.getInstance().debug(CosmeticaLogCategory.SETTINGS, "Saving zlcosmetics.properties");
+            properties.store(writer, "Per-profile zlcosmetics settings");
         } catch (IOException e) {
-            Logging.getInstance().error("Error saving cosmetica.properties", e);
+            Logging.getInstance().error("Error saving zlcosmetics.properties", e);
         }
     }
 
@@ -302,7 +302,7 @@ public final class CosmeticaSettings {
                 Logging.getInstance().info("modpack_settings_enabled=false. Skipping modpack settings");
             }
         } catch (NoSuchFileException noSuchFile) {
-            Logging.getInstance().debug(CosmeticaLogCategory.SETTINGS, "Creating/Updating cosmetica pack settings template");
+            Logging.getInstance().debug(CosmeticaLogCategory.SETTINGS, "Creating/Updating zlcosmetics pack settings template");
 
             JsonObject defaults = new JsonObject();
             // defaults

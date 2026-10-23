@@ -27,11 +27,11 @@ public interface StateHolder {
     /**
      * Get a state containing the current cosmetics.
      */
-    State<@Nullable Cosmetics> cosmetica$getCosmeticState();
+    State<@Nullable Cosmetics> zlcosmetics$getCosmeticState();
 
     /**
      * Update the cosmetics state on this entity.
      * @param cosmetics the cosmetics to update with.
      */
-    void cosmetica$setCosmeticState(@Nullable Cosmetics cosmetics);
+    void zlcosmetics$setCosmeticState(@Nullable Cosmetics cosmetics);
 }

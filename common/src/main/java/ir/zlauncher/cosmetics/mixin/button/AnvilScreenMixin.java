@@ -57,16 +57,16 @@ public abstract class AnvilScreenMixin extends ItemCombinerScreen<AnvilMenu> imp
     }
 
     @Unique
-    private @Nullable String cosmetica$newName = null;
+    private @Nullable String zlcosmetics$newName = null;
     @Unique
-    private Button cosmetica$button;
+    private Button zlcosmetics$button;
 
     @Inject(at = @At("RETURN"), method = "subInit")
     private void onSubInit(CallbackInfo ci) {
         int originX = (this.width - this.imageWidth) / 2;
         int originY = (this.height - this.imageHeight) / 2;
 
-        this.cosmetica$button = this.addButton(new Button(
+        this.zlcosmetics$button = this.addButton(new Button(
                 originX - 27,
                 originY + 46,
                 20,
@@ -80,32 +80,32 @@ public abstract class AnvilScreenMixin extends ItemCombinerScreen<AnvilMenu> imp
                 if (this.visible) {
                     Canvas canvas = new PoseCanvas(stack, Minecraft.getInstance(), null, partialTick);
 
-                    ResourceKey texture = new ResourceKey("cosmetica", this.isHovered() ? "textures/button/anvil_outfits_highlighted.png" : "textures/button/anvil_outfits.png");
+                    ResourceKey texture = new ResourceKey("zlcosmetics", this.isHovered() ? "textures/button/anvil_outfits_highlighted.png" : "textures/button/anvil_outfits.png");
                     canvas.drawTexture(this.x, this.y, this.width, this.height, 0, texture);
                 }
             }
         });
 
-        this.cosmetica$button.visible = false;
-        this.cosmetica$button.active = !Cosmetica.OWN_OUTFITS.peek().isEmpty();
+        this.zlcosmetics$button.visible = false;
+        this.zlcosmetics$button.active = !Cosmetica.OWN_OUTFITS.peek().isEmpty();
     }
 
     @Inject(at = @At("RETURN"), method = "slotChanged")
     private void onSlotChanged(AbstractContainerMenu menu, int i, ItemStack itemStack, CallbackInfo ci) {
-        if (i == 0 && this.cosmetica$newName != null) {
-            Logging.getInstance().debug(CosmeticaLogCategory.GUI, "New name: {}", this.cosmetica$newName);
-            this.name.setValue(this.cosmetica$newName);
-            this.cosmetica$newName = null;
+        if (i == 0 && this.zlcosmetics$newName != null) {
+            Logging.getInstance().debug(CosmeticaLogCategory.GUI, "New name: {}", this.zlcosmetics$newName);
+            this.name.setValue(this.zlcosmetics$newName);
+            this.zlcosmetics$newName = null;
         }
 
         if (i == 0 && CosmeticaSettings.SHOW_ANVIL_BUTTON.peek()) {
-            this.cosmetica$button.visible = itemStack.getItem() == Items.NAME_TAG;
-            this.cosmetica$button.active = !Cosmetica.OWN_OUTFITS.peek().isEmpty();
+            this.zlcosmetics$button.visible = itemStack.getItem() == Items.NAME_TAG;
+            this.zlcosmetics$button.active = !Cosmetica.OWN_OUTFITS.peek().isEmpty();
         }
     }
 
     @Override
-    public void cosmetica$setNewName(String name) {
-        this.cosmetica$newName = name;
+    public void zlcosmetics$setNewName(String name) {
+        this.zlcosmetics$newName = name;
     }
 }

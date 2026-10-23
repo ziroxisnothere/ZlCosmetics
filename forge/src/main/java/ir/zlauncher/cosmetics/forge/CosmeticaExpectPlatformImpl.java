@@ -35,7 +35,7 @@ public class CosmeticaExpectPlatformImpl {
 
         ModInfo theMod = null;
         for (ModInfo mod : mods) {
-            if ("cosmetica".equals(mod.getModId())) {
+            if ("zlcosmetics".equals(mod.getModId())) {
                 theMod = mod;
                 break;
             }

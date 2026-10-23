@@ -30,7 +30,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 
-@Mod("cosmetica")
+@Mod("zlcosmetics")
 public class CosmeticaForge implements CacheCosmeticManager.UserIO {
 	public CosmeticaForge() {
 		FMLJavaModLoadingContext.get().getModEventBus().addListener(this::onClientSetup);

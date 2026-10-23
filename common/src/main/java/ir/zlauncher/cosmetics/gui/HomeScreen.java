@@ -45,7 +45,7 @@ public class HomeScreen extends AbstractHomeScreen {
 	public HomeScreen() {
 		super(ID);
 
-		if (Boolean.getBoolean("cosmetica.debug")) {
+		if (Boolean.getBoolean("zlcosmetics.debug")) {
 			if (!shownDebugToast) {
 				shownDebugToast = true;
 				Cosmetica.showToast(
@@ -66,7 +66,7 @@ public class HomeScreen extends AbstractHomeScreen {
 	@Override
 	public boolean keyPressed(int keyCode, int scanCode, int modifiers) {
 		if (
-				Boolean.getBoolean("cosmetica.debug") &&
+				Boolean.getBoolean("zlcosmetics.debug") &&
 				keyCode == GLFW.GLFW_KEY_RIGHT_CONTROL
 		) {
 			Cosmetica.showToast(
@@ -102,13 +102,13 @@ public class HomeScreen extends AbstractHomeScreen {
 
 	private Component NotLoggedIn(final LoginResult error) {
 		return new Div(
-			new Label(Text.translatable("label.cosmetica.offline")).tag("not-logged-in-title"),
+			new Label(Text.translatable("label.zlcosmetics.offline")).tag("not-logged-in-title"),
 			// See authentication: representing no internet internally as success code/no success (core does not have a specific code)
-			new Label(error == GENERIC ? Text.translatable("label.cosmetica.offline.logging_in")
-					: (error.getCode() == LoginResult.Code.SUCCESS && !error.isSuccess()) ? Text.translatable("label.cosmetica.offline.no_internet")
-					: Text.translatable("label.cosmetica.offline." + error.getCode().toString().toLowerCase(Locale.ROOT))),
+			new Label(error == GENERIC ? Text.translatable("label.zlcosmetics.offline.logging_in")
+					: (error.getCode() == LoginResult.Code.SUCCESS && !error.isSuccess()) ? Text.translatable("label.zlcosmetics.offline.no_internet")
+					: Text.translatable("label.zlcosmetics.offline." + error.getCode().toString().toLowerCase(Locale.ROOT))),
 			new Label(Text.literal(error.getMessage())).tag("not-logged-in-description"),
-			new Button(Text.translatable("button.cosmetica.dismiss"), () -> {
+			new Button(Text.translatable("button.zlcosmetics.dismiss"), () -> {
 				dismissed = error;
 				this.dismissedError.set(true);
 			})
@@ -129,5 +129,5 @@ public class HomeScreen extends AbstractHomeScreen {
 						.set(Label.TEXT_COLOUR, 0xa0a0a0));
 	}
 
-	public static final ResourceKey ID = new ResourceKey("cosmetica", "home");
+	public static final ResourceKey ID = new ResourceKey("zlcosmetics", "home");
 }

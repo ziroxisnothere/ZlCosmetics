@@ -201,19 +201,19 @@ public class BrowseScreen extends AbstractHomeScreen {
                                     new DropdownToggles<>(filter, value -> {
                                         switch (value) {
                                         case CLOAK:
-                                            return Text.translatable("label.cosmetica.filter.cloaks");
+                                            return Text.translatable("label.zlcosmetics.filter.cloaks");
                                         case ELYTRA:
-                                            return Text.translatable("label.cosmetica.filter.elytras");
+                                            return Text.translatable("label.zlcosmetics.filter.elytras");
                                         case HEAD:
-                                            return Text.translatable("label.cosmetica.filter.head");
+                                            return Text.translatable("label.zlcosmetics.filter.head");
                                         case BODY:
-                                            return Text.translatable("label.cosmetica.filter.body");
+                                            return Text.translatable("label.zlcosmetics.filter.body");
                                         case ARM:
-                                            return Text.translatable("label.cosmetica.filter.arm");
+                                            return Text.translatable("label.zlcosmetics.filter.arm");
                                         case LEG:
-                                            return Text.translatable("label.cosmetica.filter.leg");
+                                            return Text.translatable("label.zlcosmetics.filter.leg");
                                         default:
-                                            return Text.translatable("label.cosmetica.filter.unknown");
+                                            return Text.translatable("label.zlcosmetics.filter.unknown");
                                         }
                                     }, AttachmentsEnum.CLOAK, AttachmentsEnum.ELYTRA, AttachmentsEnum.HEAD, AttachmentsEnum.BODY, AttachmentsEnum.ARM, AttachmentsEnum.LEG)
                             );
@@ -232,8 +232,8 @@ public class BrowseScreen extends AbstractHomeScreen {
                                                         this.query,
                                                         true,
                                                         32).onEnter(BrowseScreen.this.query::setNow).tag("searchbar"),
-                                                new IconButton(new ResourceKey("cosmetica", "textures/button/filter.png"), ()-> this.open(Menu.FILTER)).tag("btn-search-adjust"),  // filter
-                                                new IconButton(new ResourceKey("cosmetica", "textures/button/sort.png"), ()-> this.open(Menu.SORT)).tag("btn-search-adjust") // sort
+                                                new IconButton(new ResourceKey("zlcosmetics", "textures/button/filter.png"), ()-> this.open(Menu.FILTER)).tag("btn-search-adjust"),  // filter
+                                                new IconButton(new ResourceKey("zlcosmetics", "textures/button/sort.png"), ()-> this.open(Menu.SORT)).tag("btn-search-adjust") // sort
                                         ).withStyle(Style.create()
                                                 .set(WIDTH, percent(100, 0))
                                                 .set(MIN_HEIGHT, fixedSize(20))
@@ -283,7 +283,7 @@ public class BrowseScreen extends AbstractHomeScreen {
                         .set(WIDTH, (vw, vh, pw, ph) -> OptionalInt.of(pw - 22 * 2)));
     }
 
-    public static final ResourceKey ID = new ResourceKey("cosmetica", "browse");
+    public static final ResourceKey ID = new ResourceKey("zlcosmetics", "browse");
 
     private enum Menu {
         NONE,
@@ -292,10 +292,10 @@ public class BrowseScreen extends AbstractHomeScreen {
     }
 
     private enum Sort {
-        NEWEST("label.cosmetica.sort.newest", SearchCosmeticsDto.SortByEnum.NEWEST),
-        OLDEST("label.cosmetica.sort.oldest", SearchCosmeticsDto.SortByEnum.OLDEST),
-        MOST_POPULAR("label.cosmetica.sort.most_popular", SearchCosmeticsDto.SortByEnum.MOST_POPULAR),
-        LEAST_POPULAR("label.cosmetica.sort.least_popular", SearchCosmeticsDto.SortByEnum.LEAST_POPULAR);
+        NEWEST("label.zlcosmetics.sort.newest", SearchCosmeticsDto.SortByEnum.NEWEST),
+        OLDEST("label.zlcosmetics.sort.oldest", SearchCosmeticsDto.SortByEnum.OLDEST),
+        MOST_POPULAR("label.zlcosmetics.sort.most_popular", SearchCosmeticsDto.SortByEnum.MOST_POPULAR),
+        LEAST_POPULAR("label.zlcosmetics.sort.least_popular", SearchCosmeticsDto.SortByEnum.LEAST_POPULAR);
 
         Sort(String translationKey, SearchCosmeticsDto.SortByEnum sortByEnum) {
             this.text = Text.translatable(translationKey);
@@ -388,7 +388,7 @@ public class BrowseScreen extends AbstractHomeScreen {
                                             }
 
                                             Cosmetica.showToast(
-                                                    Text.translatable("toast.cosmetica.searchError"),
+                                                    Text.translatable("toast.zlcosmetics.searchError"),
                                                     Text.literal(ex.getMessage().length() > 27 ? ex.getMessage().substring(0, 25) + "..." : ex.getMessage()));
                                             return null;
                                         });
@@ -403,10 +403,10 @@ public class BrowseScreen extends AbstractHomeScreen {
                                             int page = BrowseScreen.this.page.acquireInstant(this);
                                             int pageCap = BrowseScreen.this.pageCap.acquire(this);
                                             return ImmutableList.of(
-                                                    new IconButton(new ResourceKey("cosmetica", page <= 1 ? "textures/button/page-left-disabled.png" : "textures/button/page-left.png"), () -> { int p = BrowseScreen.this.page.peek(); if (p > 1) BrowseScreen.this.page.set(BrowseScreen.this.page.peek() - 1); })
+                                                    new IconButton(new ResourceKey("zlcosmetics", page <= 1 ? "textures/button/page-left-disabled.png" : "textures/button/page-left.png"), () -> { int p = BrowseScreen.this.page.peek(); if (p > 1) BrowseScreen.this.page.set(BrowseScreen.this.page.peek() - 1); })
                                                             .setDisabled(page <= 1).tag("page-button"),
                                                     new Label(Text.literal(page + " / " + pageCap)),
-                                                    new IconButton(new ResourceKey("cosmetica", page >= pageCap ? "textures/button/page-right-disabled.png" : "textures/button/page-right.png"), () -> { int p = BrowseScreen.this.page.peek(); if (p < BrowseScreen.this.pageCap.peek()) BrowseScreen.this.page.set(p + 1); })
+                                                    new IconButton(new ResourceKey("zlcosmetics", page >= pageCap ? "textures/button/page-right-disabled.png" : "textures/button/page-right.png"), () -> { int p = BrowseScreen.this.page.peek(); if (p < BrowseScreen.this.pageCap.peek()) BrowseScreen.this.page.set(p + 1); })
                                                             .setDisabled(page >= pageCap).tag("page-button")
                                             );
                                         }
@@ -479,7 +479,7 @@ public class BrowseScreen extends AbstractHomeScreen {
                             children.add(
                                     new Label(Text.literal(triple.getLeft().getName())));
                             children.add(
-                                    new Label(Text.literal("§o" + Text.translatable("label.cosmetica.creator", triple.getLeft().getCreator().get()).getDisplayString() ))
+                                    new Label(Text.literal("§o" + Text.translatable("label.zlcosmetics.creator", triple.getLeft().getCreator().get()).getDisplayString() ))
                                             .withStyle(Style.create()
                                                     .set(Label.TEXT_COLOUR, 0xdddddd)
                                                     .set(MARGINS, fixed(new Margins(0,0,6,0)))));
@@ -496,23 +496,23 @@ public class BrowseScreen extends AbstractHomeScreen {
 
                             // mirrored
                             mirrored = mirroredOrCloak.acquire(this);
-                            children.add(new Button(Text.translatable("button.cosmetica.equip.mirrored", mirrored ? Text.GUI_YES.getDisplayString() : Text.GUI_NO.getDisplayString()), () -> mirroredOrCloak.set(!mirrored))
+                            children.add(new Button(Text.translatable("button.zlcosmetics.equip.mirrored", mirrored ? Text.GUI_YES.getDisplayString() : Text.GUI_NO.getDisplayString()), () -> mirroredOrCloak.set(!mirrored))
                                     .withStyle(Style.create().set(FLEX_SHRINK, 0)));
 
                             // axis positions
                             if (ao.getXRange().getRange() > 0) {
                                 float precision = 0.5f / (float) ao.getXRange().getRange();
-                                children.add(new SliderWidget(xOffset, precision, f_ -> Text.translatable("button.cosmetica.equip.x", String.format("%.1f", ao.getXRange().clampMap(f_))))
+                                children.add(new SliderWidget(xOffset, precision, f_ -> Text.translatable("button.zlcosmetics.equip.x", String.format("%.1f", ao.getXRange().clampMap(f_))))
                                         .withStyle(Style.create().set(FLEX_SHRINK, 0)));
                             }
                             if (ao.getYRange().getRange() > 0) {
                                 float precision = 0.5f / (float) ao.getYRange().getRange();
-                                children.add(new SliderWidget(yOffset, precision, f_ -> Text.translatable("button.cosmetica.equip.y", String.format("%.1f", ao.getYRange().clampMap(f_))))
+                                children.add(new SliderWidget(yOffset, precision, f_ -> Text.translatable("button.zlcosmetics.equip.y", String.format("%.1f", ao.getYRange().clampMap(f_))))
                                         .withStyle(Style.create().set(FLEX_SHRINK, 0)));
                             }
                             if (ao.getZRange().getRange() > 0) {
                                 float precision = 0.5f / (float) ao.getZRange().getRange();
-                                children.add(new SliderWidget(zOffset, precision, f_ -> Text.translatable("button.cosmetica.equip.z", String.format("%.1f", ao.getZRange().clampMap(f_))))
+                                children.add(new SliderWidget(zOffset, precision, f_ -> Text.translatable("button.zlcosmetics.equip.z", String.format("%.1f", ao.getZRange().clampMap(f_))))
                                         .withStyle(Style.create().set(FLEX_SHRINK, 0)));
                             }
 
@@ -556,19 +556,19 @@ public class BrowseScreen extends AbstractHomeScreen {
 
                                 if (co.isCloak()) {
                                     boolean isCloak = mirroredOrCloak.acquire(this);
-                                    children.add(new Button(Text.translatable("button.cosmetica.equip.isCloak", isCloak ? Text.GUI_YES.getDisplayString() : Text.GUI_NO.getDisplayString()), () -> mirroredOrCloak.set(!isCloak)));
+                                    children.add(new Button(Text.translatable("button.zlcosmetics.equip.isCloak", isCloak ? Text.GUI_YES.getDisplayString() : Text.GUI_NO.getDisplayString()), () -> mirroredOrCloak.set(!isCloak)));
                                 }
 
                                 if (co.isElytra()) {
                                     boolean isElytra = elytra.acquire(this);
-                                    children.add(new Button(Text.translatable("button.cosmetica.equip.isElytra", isElytra ? Text.GUI_YES.getDisplayString() : Text.GUI_NO.getDisplayString()), () -> elytra.set(!isElytra)));
+                                    children.add(new Button(Text.translatable("button.zlcosmetics.equip.isElytra", isElytra ? Text.GUI_YES.getDisplayString() : Text.GUI_NO.getDisplayString()), () -> elytra.set(!isElytra)));
                                 }
                             }
                         }
                         // space
                         children.add(new Div().withStyle(Style.create().set(MARGINS, fixed(new Margins(2, 0)))));
                         // submit
-                        final Button submitButton = new Button(Text.translatable("button.cosmetica.equip"), () -> {
+                        final Button submitButton = new Button(Text.translatable("button.zlcosmetics.equip"), () -> {
                             // Create the outfit changes
                             CreateOutfitDto dto = new CreateOutfitDto();
 
@@ -646,13 +646,13 @@ public class BrowseScreen extends AbstractHomeScreen {
                             submitButton.setDisabled(true);
                             submitButton.withStyle(Style.create()
                                     .set(TOOLTIP, Optional.of(new Tooltip(
-                                            Text.translatable("tooltip.cosmetica.noOutfitDisabled")
+                                            Text.translatable("tooltip.zlcosmetics.noOutfitDisabled")
                                     ))));
                         } else if (isSetting) {
                             submitButton.setDisabled(true);
                             submitButton.withStyle(Style.create()
                                     .set(TOOLTIP, Optional.of(new Tooltip(
-                                            Text.translatable("tooltip.cosmetica.equipping")
+                                            Text.translatable("tooltip.zlcosmetics.equipping")
                                     ))));
                         }
                         else if (options instanceof AccessoryOptions) {
@@ -661,7 +661,7 @@ public class BrowseScreen extends AbstractHomeScreen {
                                 submitButton.setDisabled(true);
                                 submitButton.withStyle(Style.create()
                                         .set(TOOLTIP, Optional.of(new Tooltip(
-                                                Text.translatable("tooltip.cosmetica.accessoryLimitReached", String.valueOf(outfit.getAccessories().size()), String.valueOf(accessoryLimit))
+                                                Text.translatable("tooltip.zlcosmetics.accessoryLimitReached", String.valueOf(outfit.getAccessories().size()), String.valueOf(accessoryLimit))
                                         ))));
                             } else {
                                 // check outfit duplicates
@@ -672,8 +672,8 @@ public class BrowseScreen extends AbstractHomeScreen {
                                             submitButton.withStyle(Style.create()
                                                     .set(TOOLTIP, Optional.of(new Tooltip(
                                                             mirrored ?
-                                                                    Text.translatable("tooltip.cosmetica.alreadyEquippedAccessoryMirrored") :
-                                                                    Text.translatable("tooltip.cosmetica.alreadyEquippedAccessory")
+                                                                    Text.translatable("tooltip.zlcosmetics.alreadyEquippedAccessoryMirrored") :
+                                                                    Text.translatable("tooltip.zlcosmetics.alreadyEquippedAccessory")
                                                     ))));
                                         }
                                     }
@@ -717,7 +717,7 @@ public class BrowseScreen extends AbstractHomeScreen {
                             .set(PADDING, fixed(new Margins(1))))
                     .tag("visibility-option-default", Style.create()
                             .set(TOOLTIP, Optional.of(new Tooltip(
-                                    Text.translatable("tooltip.cosmetica.defaultVisibilityOptions")
+                                    Text.translatable("tooltip.zlcosmetics.defaultVisibilityOptions")
                             ))))
                     .tag("flex-1", Style.create()
                             .set(FLEX, 1));

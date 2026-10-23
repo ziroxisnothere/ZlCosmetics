@@ -125,8 +125,8 @@ public class CosmeticEntry extends Component {
 		// add remove button if editable
 		if (this.type.hasRemoveButton()) {
 			content.add(
-					new ClickableImage(new ResourceKey("cosmetica", "textures/button/remove_cross.png"), () -> {
-						Screens.setScreen(new ConfirmRemoveCosmeticScreen(this.parentOutfit, this.id, this.name, this.mirrored), Text.translatable("screens.cosmetica.confirmDeletion"));
+					new ClickableImage(new ResourceKey("zlcosmetics", "textures/button/remove_cross.png"), () -> {
+						Screens.setScreen(new ConfirmRemoveCosmeticScreen(this.parentOutfit, this.id, this.name, this.mirrored), Text.translatable("screens.zlcosmetics.confirmDeletion"));
 					}).setDisabled(this.type == Type.REMOVABLE_OFFLINE)
 							.setTransparent(1.0f)
 							.withStyle(Cosmetica.authTooltipStyle(this.type == Type.REMOVABLE))
@@ -173,7 +173,7 @@ public class CosmeticEntry extends Component {
 
 			if (this.type == Type.EQUIPPABLE_UNSUPPORTED) {
 				b.setDisabled(true);
-				b.withStyle(Style.create().set(TOOLTIP, Optional.of(new Tooltip(Text.translatable("tooltip.cosmetica.outdated")))));
+				b.withStyle(Style.create().set(TOOLTIP, Optional.of(new Tooltip(Text.translatable("tooltip.zlcosmetics.outdated")))));
 			}
 
 			content.add(b);
@@ -234,7 +234,7 @@ public class CosmeticEntry extends Component {
 
 	private static Text iconTooltip(ResourceKey infoIcon) {
 		String[] path = infoIcon.getPath().split("/");
-		return Text.translatable("tooltip.cosmetica.icons." + path[path.length - 1].substring(0, path[path.length - 1].length() - 4));
+		return Text.translatable("tooltip.zlcosmetics.icons." + path[path.length - 1].substring(0, path[path.length - 1].length() - 4));
 	}
 
 	public enum Category {
@@ -244,16 +244,16 @@ public class CosmeticEntry extends Component {
 	}
 
 	public enum Attachment {
-		HEAD_ACCESSORY(Category.ACCESSORY, new ResourceKey("cosmetica", "textures/icon/accessory_head.png")),
-		TORSO_ACCESSORY(Category.ACCESSORY, new ResourceKey("cosmetica", "textures/icon/accessory_body.png")),
-		LEFT_ARM_ACCESSORY(Category.ACCESSORY, new ResourceKey("cosmetica", "textures/icon/accessory_left_arm.png")),
-		RIGHT_ARM_ACCESSORY(Category.ACCESSORY, new ResourceKey("cosmetica", "textures/icon/accessory_right_arm.png")),
-		LEFT_LEG_ACCESSORY(Category.ACCESSORY, new ResourceKey("cosmetica", "textures/icon/accessory_left_leg.png")),
-		RIGHT_LEG_ACCESSORY(Category.ACCESSORY, new ResourceKey("cosmetica", "textures/icon/accessory_right_leg.png")),
-		CLOAK(Category.CAPE, new ResourceKey("cosmetica", "textures/icon/cape_cloak.png")),
-		ELYTRA(Category.CAPE, new ResourceKey("cosmetica", "textures/icon/cape_elytra.png")),
-		CLOAK_ELYTRA(Category.CAPE, new ResourceKey("cosmetica", "textures/icon/cape_cape.png")),
-		UNKNOWN(Category.UNKNOWN, new ResourceKey("cosmetica", "icon.png"));
+		HEAD_ACCESSORY(Category.ACCESSORY, new ResourceKey("zlcosmetics", "textures/icon/accessory_head.png")),
+		TORSO_ACCESSORY(Category.ACCESSORY, new ResourceKey("zlcosmetics", "textures/icon/accessory_body.png")),
+		LEFT_ARM_ACCESSORY(Category.ACCESSORY, new ResourceKey("zlcosmetics", "textures/icon/accessory_left_arm.png")),
+		RIGHT_ARM_ACCESSORY(Category.ACCESSORY, new ResourceKey("zlcosmetics", "textures/icon/accessory_right_arm.png")),
+		LEFT_LEG_ACCESSORY(Category.ACCESSORY, new ResourceKey("zlcosmetics", "textures/icon/accessory_left_leg.png")),
+		RIGHT_LEG_ACCESSORY(Category.ACCESSORY, new ResourceKey("zlcosmetics", "textures/icon/accessory_right_leg.png")),
+		CLOAK(Category.CAPE, new ResourceKey("zlcosmetics", "textures/icon/cape_cloak.png")),
+		ELYTRA(Category.CAPE, new ResourceKey("zlcosmetics", "textures/icon/cape_elytra.png")),
+		CLOAK_ELYTRA(Category.CAPE, new ResourceKey("zlcosmetics", "textures/icon/cape_cape.png")),
+		UNKNOWN(Category.UNKNOWN, new ResourceKey("zlcosmetics", "icon.png"));
 
 		Attachment(Category metaCategory, ResourceKey icon) {
 			this.category = metaCategory;
@@ -381,10 +381,10 @@ public class CosmeticEntry extends Component {
 			// add info icons
 			List<ResourceKey> infoIcons = new ArrayList<>();
 			if (accessory.isMirrored()) {
-				infoIcons.add(new ResourceKey("cosmetica", "textures/icon/mirrored.png"));
+				infoIcons.add(new ResourceKey("zlcosmetics", "textures/icon/mirrored.png"));
 			}
 			for (Accessory.Flag flag : accessory.getFlags()) {
-				infoIcons.add(new ResourceKey("cosmetica", "textures/icon/" + flag.toString().toLowerCase(Locale.ROOT) + ".png"));
+				infoIcons.add(new ResourceKey("zlcosmetics", "textures/icon/" + flag.toString().toLowerCase(Locale.ROOT) + ".png"));
 			}
 			entry.setInfoIcons(infoIcons);
 		}
@@ -472,7 +472,7 @@ public class CosmeticEntry extends Component {
 					int flags = cosmetic.getFlags().intValue();
 					for (Accessory.Flag flag : Accessory.Flag.values()) {
 						if (flag.isSet(flags)) {
-							infoIcons.add(new ResourceKey("cosmetica", "textures/icon/" + flag.toString().toLowerCase(Locale.ROOT) + ".png"));
+							infoIcons.add(new ResourceKey("zlcosmetics", "textures/icon/" + flag.toString().toLowerCase(Locale.ROOT) + ".png"));
 						}
 					}
 					entry.setInfoIcons(infoIcons);

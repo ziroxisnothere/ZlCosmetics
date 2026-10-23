@@ -31,7 +31,7 @@ import java.util.concurrent.CompletionException;
 
 public final class ConfirmRemoveOutfitScreen extends AbstractConfirmScreen {
     public ConfirmRemoveOutfitScreen(String outfitId, String outfitName) {
-        super(Text.translatable("screens.cosmetica.confirmDeletion"));
+        super(Text.translatable("screens.zlcosmetics.confirmDeletion"));
         this.outfitId = outfitId;
         this.outfitName = outfitName;
     }
@@ -41,12 +41,12 @@ public final class ConfirmRemoveOutfitScreen extends AbstractConfirmScreen {
 
     @Override
     protected Label createConfirmLabel() {
-        return new Label(Text.translatable("label.cosmetica.confirmDelete", outfitName));
+        return new Label(Text.translatable("label.zlcosmetics.confirmDelete", outfitName));
     }
 
     @Override
     protected Tooltip getUpdatingTooltip() {
-        return new Tooltip(Text.translatable("tooltip.cosmetica.updatingOutfit"));
+        return new Tooltip(Text.translatable("tooltip.zlcosmetics.updatingOutfit"));
     }
 
     @Override
@@ -73,7 +73,7 @@ public final class ConfirmRemoveOutfitScreen extends AbstractConfirmScreen {
                         // outfit doesn't exist
                         if (code == 404) {
                             Cosmetica.showToast(
-                                    Text.translatable("toast.cosmetica.outfit404"),
+                                    Text.translatable("toast.zlcosmetics.outfit404"),
                                     null
                             );
                             Minecraft.getInstance().execute(Screens::closeCurrentScreen);
@@ -86,7 +86,7 @@ public final class ConfirmRemoveOutfitScreen extends AbstractConfirmScreen {
                             Minecraft.getInstance().execute(() -> setting.set(false));
 
                             Cosmetica.showToast(
-                                    Text.translatable("toast.cosmetica.outfitDeleteError"),
+                                    Text.translatable("toast.zlcosmetics.outfitDeleteError"),
                                     Text.literal("Error code " + code)
                             );
                         }
@@ -94,7 +94,7 @@ public final class ConfirmRemoveOutfitScreen extends AbstractConfirmScreen {
                         Logging.getInstance().error("Failed to remove outfit", err);
 
                         Cosmetica.showToast(
-                                Text.translatable("toast.cosmetica.outfitDeleteError"),
+                                Text.translatable("toast.zlcosmetics.outfitDeleteError"),
                                 Text.literal(err.getClass().getSimpleName())
                         );
                     }

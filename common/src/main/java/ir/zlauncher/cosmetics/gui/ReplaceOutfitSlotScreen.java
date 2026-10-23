@@ -135,8 +135,8 @@ public class ReplaceOutfitSlotScreen extends Component implements AnimatedTextur
                                 new Label(Text.literal(newOutfit.getOutfitName().orElse("(No name)"))),
                                 new SlideToggle(
                                         this.showingElytra,
-                                        Text.translatable("button.cosmetica.toggleCloak"),
-                                        Text.translatable("button.cosmetica.toggleElytra"))
+                                        Text.translatable("button.zlcosmetics.toggleCloak"),
+                                        Text.translatable("button.zlcosmetics.toggleElytra"))
                         ).tag("player-wrapper"),
                         new EntryList.Grid(components.toArray(new Component[0]), k->{
                             if (replacing != null) {
@@ -154,7 +154,7 @@ public class ReplaceOutfitSlotScreen extends Component implements AnimatedTextur
                         }).tag("outfit-slot-grid")
                 ).tag("body"),
                 new Div(
-                        new Button(Text.translatable(replacing == null || replacing.option == null ? "button.cosmetica.confirm" : "button.cosmetica.replace"), () -> {
+                        new Button(Text.translatable(replacing == null || replacing.option == null ? "button.zlcosmetics.confirm" : "button.zlcosmetics.replace"), () -> {
                             final ReplaceableOutfit oldOutfit = replacing;
                             if (oldOutfit != null && oldOutfit.usable) // sanity check
                             {
@@ -215,7 +215,7 @@ public class ReplaceOutfitSlotScreen extends Component implements AnimatedTextur
                         .set(HEIGHT, fixedSize(50)));
     }
 
-    public static final ResourceKey STEAL_THEIR_LOOK = new ResourceKey("cosmetica", "steal_their_look");
+    public static final ResourceKey STEAL_THEIR_LOOK = new ResourceKey("zlcosmetics", "steal_their_look");
 
     // Stolen & modified from kupe Screen
     private static final Style BODY_DEFAULT_STYLE = Style.create()
@@ -257,7 +257,7 @@ public class ReplaceOutfitSlotScreen extends Component implements AnimatedTextur
                 // Fix border not showing on new outfit option
                 return new Stylesheet()
                         .self(Style.create()
-                                .set(TOOLTIP, Optional.of(new Tooltip(Text.translatable("tooltip.cosmetica.newOutfit"))))
+                                .set(TOOLTIP, Optional.of(new Tooltip(Text.translatable("tooltip.zlcosmetics.newOutfit"))))
                                 .set(PADDING, fixed(new Margins(1))));
             } else {
                 // tooltip

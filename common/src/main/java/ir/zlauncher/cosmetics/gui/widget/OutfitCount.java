@@ -46,9 +46,9 @@ public class OutfitCount extends Div {
         int count = Cosmetica.OWN_OUTFITS.extract(this, List::size);
 
         return Collections.singletonList(
-                new Label(count<0 ? Text.translatable("label.cosmetica.loading") :
+                new Label(count<0 ? Text.translatable("label.zlcosmetics.loading") :
                         Text.translatable(
-                                "label.cosmetica.outfitCount",
+                                "label.zlcosmetics.outfitCount",
                                 String.valueOf(count),
                                 String.valueOf(limit)
                         ))

@@ -33,13 +33,13 @@ public class OptionsMixin {
     public KeyMapping[] keyMappings;
 
     @Unique
-    private boolean cosmetica$modified = false;
+    private boolean zlcosmetics$modified = false;
 
     @Inject(at = @At("HEAD"), method = "load")
     private void onLoad(CallbackInfo ci) {
         // only run once!
-        if (!this.cosmetica$modified) {
-            this.cosmetica$modified = true;
+        if (!this.zlcosmetics$modified) {
+            this.zlcosmetics$modified = true;
 
             KeyMapping[] cosmeticaMappings = {
                     Keybinds.CUSTOMISE,

@@ -69,8 +69,8 @@ jobs:
             Automated build of **ZlCosmetics** for Minecraft **1.16.5** (commit ${{ github.sha }})
 
             ## Downloads
-            - `cosmetica-fabric-*.jar` — **Fabric** (Fabric Loader + Fabric API)
-            - `cosmetica-forge-*.jar` — **Forge**
+            - `zlcosmetics-fabric-*.jar` — **Fabric** (Fabric Loader + Fabric API)
+            - `zlcosmetics-forge-*.jar` — **Forge**
 
             Built by GitHub Actions from branch/tag: `${{ github.ref_name }}`
           draft: false

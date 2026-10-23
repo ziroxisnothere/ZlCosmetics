@@ -48,7 +48,7 @@ package ir.zlauncher.cosmetics.mixin;
 //        return original;
 ////        ByteArrayOutputStream os = new ByteArrayOutputStream();
 ////        // Write the BufferedImage as PNG to the output stream
-////        ImageIO.write(Cosmetica.cosmetica$debugimage, "webp", os);
+////        ImageIO.write(Cosmetica.zlcosmetics$debugimage, "webp", os);
 ////        // Convert the output stream to a byte array
 ////        byte[] imageBytes = os.toByteArray();
 ////        // Return a ByteArrayInputStream
@@ -70,7 +70,7 @@ package ir.zlauncher.cosmetics.mixin;
 //        return original;
 ////        ByteArrayOutputStream os = new ByteArrayOutputStream();
 ////        // Write the BufferedImage as PNG to the output stream
-////        ImageIO.write(Cosmetica.cosmetica$debugimage, "webp", os);
+////        ImageIO.write(Cosmetica.zlcosmetics$debugimage, "webp", os);
 ////        // Convert the output stream to a byte array
 ////        byte[] imageBytes = os.toByteArray();
 ////        // Return a ByteArrayInputStream

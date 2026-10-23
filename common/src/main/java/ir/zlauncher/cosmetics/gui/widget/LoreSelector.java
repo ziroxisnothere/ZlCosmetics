@@ -212,12 +212,12 @@ public class LoreSelector extends LayeredSpace {
 
             // only show colouring button if you have multiple unlocked lore colours
             if (this.unlockedColours.size() > 1) {
-                result.add(new IconButton(new ResourceKey("cosmetica", "textures/button/colour.png"), () -> {
+                result.add(new IconButton(new ResourceKey("zlcosmetics", "textures/button/colour.png"), () -> {
                     boolean open = LoreSelector.this.colourSelectorOpen.peek();
                     LoreSelector.this.colourSelectorOpen.set(!open);
                 }));
             }
-            result.add(new IconButton(new ResourceKey("cosmetica", lore.isNoLore() ? "textures/button/no_lore.png" : "textures/button/no_lore_red.png"), this::clearLore)
+            result.add(new IconButton(new ResourceKey("zlcosmetics", lore.isNoLore() ? "textures/button/no_lore.png" : "textures/button/no_lore_red.png"), this::clearLore)
                     .tag("lore-remove-button"));
 
             return result;
@@ -284,7 +284,7 @@ public class LoreSelector extends LayeredSpace {
             return new Stylesheet().self(Style.create()
                     .set(PADDING, fixed(new Margins(1))))
                     .tag("lore-remove-button", Style.create()
-                            .set(TOOLTIP, Optional.of(new Tooltip(Text.translatable("tooltip.cosmetica.remove_lore")))));
+                            .set(TOOLTIP, Optional.of(new Tooltip(Text.translatable("tooltip.zlcosmetics.remove_lore")))));
         }
     }
 

@@ -35,9 +35,9 @@ public class RenameOutfitScreen extends AbstractOutfitEditScreen {
     public RenameOutfitScreen(String id, String name, boolean isPublic) {
         super(
                 TITLE,
-                Text.translatable("button.cosmetica.renameOutfit"),
-                new Tooltip(Text.translatable("tooltip.cosmetica.updatingOutfit")),
-                Text.translatable("toast.cosmetica.outfitUpdateError"),
+                Text.translatable("button.zlcosmetics.renameOutfit"),
+                new Tooltip(Text.translatable("tooltip.zlcosmetics.updatingOutfit")),
+                Text.translatable("toast.zlcosmetics.outfitUpdateError"),
                 name, isPublic);
 
         this.id = id;
@@ -99,5 +99,5 @@ public class RenameOutfitScreen extends AbstractOutfitEditScreen {
         return t;
     }
 
-    public static final Text TITLE = Text.translatable("screens.cosmetica.outfit_settings");
+    public static final Text TITLE = Text.translatable("screens.zlcosmetics.outfit_settings");
 }

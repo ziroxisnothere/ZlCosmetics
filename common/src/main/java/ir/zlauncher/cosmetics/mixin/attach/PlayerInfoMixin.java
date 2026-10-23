@@ -27,15 +27,15 @@ import org.spongepowered.asm.mixin.Unique;
 @Mixin(PlayerInfo.class)
 public class PlayerInfoMixin implements StateHolder {
     @Unique
-    private final State<@Nullable Cosmetics> cosmetica$cosmeticsState = new State<>(null);
+    private final State<@Nullable Cosmetics> zlcosmetics$cosmeticsState = new State<>(null);
 
     @Override
-    public State<@Nullable Cosmetics> cosmetica$getCosmeticState() {
-        return this.cosmetica$cosmeticsState;
+    public State<@Nullable Cosmetics> zlcosmetics$getCosmeticState() {
+        return this.zlcosmetics$cosmeticsState;
     }
 
     @Override
-    public void cosmetica$setCosmeticState(@Nullable Cosmetics cosmetics) {
-        this.cosmetica$cosmeticsState.set(cosmetics);
+    public void zlcosmetics$setCosmeticState(@Nullable Cosmetics cosmetics) {
+        this.zlcosmetics$cosmeticsState.set(cosmetics);
     }
 }

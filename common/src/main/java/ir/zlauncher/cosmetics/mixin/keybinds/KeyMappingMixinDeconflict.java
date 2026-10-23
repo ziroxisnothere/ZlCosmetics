@@ -44,7 +44,7 @@ public class KeyMappingMixinDeconflict {
     private InputConstants.Key key;
 
     @Unique
-    private static Map<String, KeyMapping> cosmetica$buffer = new HashMap<>();
+    private static Map<String, KeyMapping> zlcosmetics$buffer = new HashMap<>();
 
     @Inject(at = @At("RETURN"), method = "set")
     private static void onSet(InputConstants.Key key, boolean bl, CallbackInfo ci) {
@@ -58,7 +58,7 @@ public class KeyMappingMixinDeconflict {
     private static void onClick(InputConstants.Key key, CallbackInfo ci) {
         @Nullable KeyMapping k = Keybinds.SPECIAL_MAP.get(key);
         if (k != null) {
-            ((Behaviour)k).cosmetica$invoke();
+            ((Behaviour)k).zlcosmetics$invoke();
         }
     }
 
@@ -70,25 +70,25 @@ public class KeyMappingMixinDeconflict {
         // Remove ALL before doing vanilla/modded action
         ALL.forEach((mapping, keyMapping) -> {
             if (keyMapping == Keybinds.SNIPE) {
-                cosmetica$buffer.put(mapping, keyMapping);
+                zlcosmetics$buffer.put(mapping, keyMapping);
             }
         });
 
-        cosmetica$buffer.forEach((key, keyMapping) -> {
+        zlcosmetics$buffer.forEach((key, keyMapping) -> {
             ALL.remove(key);
         });
 
         Keybinds.SPECIAL_MAP.clear();
 
         // Do process
-        for(KeyMapping keyMapping : cosmetica$buffer.values()) {
-            Keybinds.SPECIAL_MAP.put(((KeyMappingAccessor)keyMapping).cosmetica$getKey(), keyMapping);
+        for(KeyMapping keyMapping : zlcosmetics$buffer.values()) {
+            Keybinds.SPECIAL_MAP.put(((KeyMappingAccessor)keyMapping).zlcosmetics$getKey(), keyMapping);
         }
     }
 
     @Inject(at = @At("RETURN"), method = "resetMapping")
     private static void afterResetMapping(CallbackInfo ci) {
         // Afterwards, add back to ALL
-        ALL.putAll(cosmetica$buffer);
+        ALL.putAll(zlcosmetics$buffer);
     }
 }

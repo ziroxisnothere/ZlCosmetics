@@ -79,5 +79,5 @@ public class CosmeticaToast implements Toast {
         return 180;
     }
 
-    private static final ResourceKey TEXTURE = new ResourceKey("cosmetica", "textures/toast.png");
+    private static final ResourceKey TEXTURE = new ResourceKey("zlcosmetics", "textures/toast.png");
 }

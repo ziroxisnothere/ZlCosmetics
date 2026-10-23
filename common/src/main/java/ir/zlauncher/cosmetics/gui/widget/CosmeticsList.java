@@ -73,9 +73,9 @@ public class CosmeticsList extends Div {
 						.set(WIDTH, screen(45, 0))
 						.set(MAXIMUM_SIZE, fixed(new Dimensions(396, Integer.MAX_VALUE))))
 				.tag("no-outfit-disabled", Style.create()
-						.set(TOOLTIP, Optional.of(new Tooltip(Text.translatable("tooltip.cosmetica.noOutfitDisabled")))))
+						.set(TOOLTIP, Optional.of(new Tooltip(Text.translatable("tooltip.zlcosmetics.noOutfitDisabled")))))
 				.tag("no-outfit-offline", Style.create()
-						.set(TOOLTIP, Optional.of(new Tooltip(Text.translatable("tooltip.cosmetica.offline")))));
+						.set(TOOLTIP, Optional.of(new Tooltip(Text.translatable("tooltip.zlcosmetics.offline")))));
 	}
 
 	public enum ListType {

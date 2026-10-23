@@ -191,12 +191,12 @@ public class StyleNametagScreen extends Screen implements AnimatedTextureScreen 
                         }
                         if (e instanceof ApiException) {
                             Cosmetica.showToast(
-                                    Text.translatable("toast.cosmetica.loreUpdateError"),
+                                    Text.translatable("toast.zlcosmetics.loreUpdateError"),
                                     Text.literal("Error code " + ((ApiException) e).getCode())
                             );
                         } else {
                             Cosmetica.showToast(
-                                    Text.translatable("toast.cosmetica.loreUpdateError"),
+                                    Text.translatable("toast.zlcosmetics.loreUpdateError"),
                                     Text.literal(e.getClass().getSimpleName())
                             );
                         }
@@ -240,7 +240,7 @@ public class StyleNametagScreen extends Screen implements AnimatedTextureScreen 
         }
     }
 
-    public static final ResourceKey ID = new ResourceKey("cosmetica", "name_tag");
+    public static final ResourceKey ID = new ResourceKey("zlcosmetics", "name_tag");
 
 
     private static final LoreOptions UNLOADED = new LoreOptions();

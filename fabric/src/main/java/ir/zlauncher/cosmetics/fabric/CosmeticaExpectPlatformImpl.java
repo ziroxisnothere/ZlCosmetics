@@ -31,6 +31,6 @@ public class CosmeticaExpectPlatformImpl {
 
     public static String getVersion() {
         FabricLoader loader = FabricLoader.getInstance();
-        return loader.getModContainer("cosmetica").get().getMetadata().getVersion().getFriendlyString();
+        return loader.getModContainer("zlcosmetics").get().getMetadata().getVersion().getFriendlyString();
     }
 }

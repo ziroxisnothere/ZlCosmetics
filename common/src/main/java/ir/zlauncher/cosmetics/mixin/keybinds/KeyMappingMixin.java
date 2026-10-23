@@ -42,7 +42,7 @@ public class KeyMappingMixin implements Behaviour {
     private int clickCount;
 
     @Override
-    public void cosmetica$invoke() {
+    public void zlcosmetics$invoke() {
         this.clickCount++;
     }
 

@@ -51,7 +51,7 @@ import static cc.cosmetica.kupe.api.gui.style.CommonProperties.*;
  * Unregistered. Pass ID as second parameter when setting kupe screen.
  */
 public class SnipeScreen extends Screen implements AnimatedTextureScreen {
-    public static final ResourceKey ID = new ResourceKey("cosmetica", "snipe");
+    public static final ResourceKey ID = new ResourceKey("zlcosmetics", "snipe");
 
     public SnipeScreen(LivingEntity entity) {
         super(entity instanceof Player ?
@@ -60,7 +60,7 @@ public class SnipeScreen extends Screen implements AnimatedTextureScreen {
         );
 
         // TODO armour stands dont have an autoupdated cosmetic state currently. we subscribe to automatic outfit updates, so this should be done?
-        this.cosmetics = ((StateHolder)entity).cosmetica$getCosmeticState();
+        this.cosmetics = ((StateHolder)entity).zlcosmetics$getCosmeticState();
         this.playerUUID = entity instanceof Player ? entity.getUUID() : null;
         // TODO use a central state for authenticated in case re-auth. compose states with isSetting
         this.isSettingOrUnauthenticated = new State<>(!CosmeticaAPI.isAuthenticated());
@@ -123,8 +123,8 @@ public class SnipeScreen extends Screen implements AnimatedTextureScreen {
                                     guiPlayer.withStyle(Style.create().set(WIDTH, screen(12, 0))),
                                 new SlideToggle(
                                         this.showingElytra,
-                                        Text.translatable("button.cosmetica.toggleCloak"),
-                                        Text.translatable("button.cosmetica.toggleElytra"))
+                                        Text.translatable("button.zlcosmetics.toggleCloak"),
+                                        Text.translatable("button.zlcosmetics.toggleElytra"))
                                         .withStyle(Style.create().set(MARGINS, fixed(new Margins(5,0,0,0))))
                         ).tag("main-section")
                                 .withStyle(Style.create()
@@ -134,7 +134,7 @@ public class SnipeScreen extends Screen implements AnimatedTextureScreen {
                 ).tag("main-content"),
                 new StealTheirLookButton(
                         outfit, this.isSettingOrUnauthenticated,
-                        Text.translatable("button.cosmetica.stealHisLook"),
+                        Text.translatable("button.zlcosmetics.stealHisLook"),
                         () -> {
                             String outfitId = outfit == null ? "" : outfit.getOutfitId().orElse("");
                             if (outfitId.isEmpty()) {
@@ -283,7 +283,7 @@ public class SnipeScreen extends Screen implements AnimatedTextureScreen {
 
             boolean disabled = outfit == null ? (overrideDisabled || cosmetics1 == null) : (overrideDisabled || (cosmetics1 != null && cosmetics1.getOutfitId().equals(outfit.getOutfitId())));
             this.setDisabled(disabled);
-            this.withStyle(Style.create().set(TOOLTIP, disabled ? Optional.of(new Tooltip(Text.translatable("tooltip.cosmetica.outfitAlreadySelected"))) : Optional.empty()));
+            this.withStyle(Style.create().set(TOOLTIP, disabled ? Optional.of(new Tooltip(Text.translatable("tooltip.zlcosmetics.outfitAlreadySelected"))) : Optional.empty()));
             return super.build();
         }
     }

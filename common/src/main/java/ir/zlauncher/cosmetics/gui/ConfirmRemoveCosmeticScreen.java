@@ -41,7 +41,7 @@ import java.util.concurrent.CompletionException;
 
 public final class ConfirmRemoveCosmeticScreen extends AbstractConfirmScreen {
     public ConfirmRemoveCosmeticScreen(Cosmetics parentOutfit, String itemId, String itemName, boolean mirrored) {
-        super(Text.translatable("screens.cosmetica.confirmDeletion"));
+        super(Text.translatable("screens.zlcosmetics.confirmDeletion"));
 
         Objects.requireNonNull(parentOutfit.getOutfitId().orElse(null), "Cosmetics must represent an outfit to allow removals.");
         this.parentOutfit = parentOutfit;
@@ -59,12 +59,12 @@ public final class ConfirmRemoveCosmeticScreen extends AbstractConfirmScreen {
 
     @Override
     protected Label createConfirmLabel() {
-        return new Label(Text.translatable("label.cosmetica.confirmRemove", removedItemName, parentOutfit.getOutfitName().get()));
+        return new Label(Text.translatable("label.zlcosmetics.confirmRemove", removedItemName, parentOutfit.getOutfitName().get()));
     }
 
     @Override
     protected Tooltip getUpdatingTooltip() {
-        return new Tooltip(Text.translatable("tooltip.cosmetica.updatingOutfit"));
+        return new Tooltip(Text.translatable("tooltip.zlcosmetics.updatingOutfit"));
     }
 
     @Override
@@ -116,12 +116,12 @@ public final class ConfirmRemoveCosmeticScreen extends AbstractConfirmScreen {
 
                     if (ex instanceof ApiException) {
                         Cosmetica.showToast(
-                                Text.translatable("toast.cosmetica.outfitUpdateError"),
+                                Text.translatable("toast.zlcosmetics.outfitUpdateError"),
                                 Text.literal("Error code " + ((ApiException) ex).getCode())
                         );
                     } else {
                         Cosmetica.showToast(
-                                Text.translatable("toast.cosmetica.outfitUpdateError"),
+                                Text.translatable("toast.zlcosmetics.outfitUpdateError"),
                                 Text.literal(ex.getClass().getSimpleName())
                         );
                     }

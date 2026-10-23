@@ -93,7 +93,7 @@ public class ExternalURLButton extends IconButton {
         boolean clicked = this.clicked.peek();
         return new Stylesheet()
                 .self(Style.create()
-                        .set(TOOLTIP, clicked ? Optional.of(new Tooltip(Text.translatable("tooltip.cosmetica.copiedURL"))) : Optional.ofNullable(this.defaultTooltip))
+                        .set(TOOLTIP, clicked ? Optional.of(new Tooltip(Text.translatable("tooltip.zlcosmetics.copiedURL"))) : Optional.ofNullable(this.defaultTooltip))
                         .set(POINTER_EVENTS, PointerEvents.ALL));
     }
 }

@@ -71,7 +71,7 @@ public class DropdownToggles<T> extends Div {
             public List<Component> build() {
                 return Arrays.asList(
                         new Label(text),
-                        new Image(new ResourceKey("cosmetica", selected ? "textures/checkbox_check.png" : "textures/checkbox_empty.png"))
+                        new Image(new ResourceKey("zlcosmetics", selected ? "textures/checkbox_check.png" : "textures/checkbox_empty.png"))
                                 .withStyle(Style.create()
                                         .set(HEIGHT, fixedSize(12))
                                         .set(WIDTH, fixedSize(12)))

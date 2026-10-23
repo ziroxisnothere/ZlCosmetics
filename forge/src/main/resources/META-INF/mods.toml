@@ -4,23 +4,23 @@ loaderVersion = "[36,)"
 license = "Apache 2.0"
 
 [[mods]]
-modId = "cosmetica"
+modId = "zlcosmetics"
 version = "${version}"
-displayName = "Cosmetica"
+displayName = "ZlCosmetics"
 authors = "Zirox, Simon, Zenox"
 description = '''
-Custom Cosmetics for Free, Forever.
+Custom Cosmetics by ZlLauncher.
 '''
-logoFile = "assets/cosmetica/icon.png"
+logoFile = "assets/zlcosmetics/icon.png"
 
-[[dependencies.cosmetica]]
+[[dependencies.zlcosmetics]]
 modId = "forge"
 mandatory = true
 versionRange = "[36,)"
 ordering = "NONE"
 side = "BOTH"
 
-[[dependencies.cosmetica]]
+[[dependencies.zlcosmetics]]
 modId = "minecraft"
 mandatory = true
 versionRange = "[1.16.5,1.17)"

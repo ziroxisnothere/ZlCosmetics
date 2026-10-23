@@ -27,13 +27,13 @@ import org.spongepowered.asm.mixin.Mixin;
 @Mixin(ArmorStand.class)
 public class ArmourStandMixin implements StateHolder {
     @Override
-    public State<@Nullable Cosmetics> cosmetica$getCosmeticState() {
+    public State<@Nullable Cosmetics> zlcosmetics$getCosmeticState() {
         // new, currently
         return new State<>(Cosmetics.getCosmetics((LivingEntity) (Object) this).orElse(null));
     }
 
     @Override
-    public void cosmetica$setCosmeticState(@Nullable Cosmetics cosmetics) {
+    public void zlcosmetics$setCosmeticState(@Nullable Cosmetics cosmetics) {
         // NO-OP (no subscription currently?)
     }
 }

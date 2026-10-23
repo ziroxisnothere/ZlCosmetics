@@ -50,9 +50,9 @@ public class MenuEndSelection extends Div {
 
         return ImmutableList.of(
                 new Button(Text.GUI_DONE, Screens::closeCurrentScreen).setDisabled(this.disabled),
-                new ExternalURLButton(new ResourceKey("cosmetica", "textures/button/internet.png"),
+                new ExternalURLButton(new ResourceKey("zlcosmetics", "textures/button/internet.png"),
                         "/home",
-                        Cosmetica.authTooltip(isLoggedIn).orElse(new Tooltip(Text.translatable("tooltip.cosmetica.openWebPanel")))
+                        Cosmetica.authTooltip(isLoggedIn).orElse(new Tooltip(Text.translatable("tooltip.zlcosmetics.openWebPanel")))
                 ).setDisabled(!isLoggedIn)
         );
     }

@@ -20,5 +20,5 @@ package ir.zlauncher.cosmetics;
  * Invoke some behaviour.
  */
 public interface Behaviour {
-    void cosmetica$invoke();
+    void zlcosmetics$invoke();
 }

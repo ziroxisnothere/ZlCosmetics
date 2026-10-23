@@ -80,7 +80,7 @@ public class Cosmetica {
 	public static final State<@NotNull ImageCosmetic> SELECTED_ICON = new State<>(NametagConfig.NO_ICON);
 	public static final State<Lore> SELECTED_LORE = new State<>(Lore.none(UpdateLoreDto.ColorEnum.WHITE));
 //
-//	public static final BufferedImage cosmetica$debugimage;
+//	public static final BufferedImage zlcosmetics$debugimage;
 
 	private static final AtomicBoolean VALID_AUTH = new AtomicBoolean();
 
@@ -102,7 +102,7 @@ public class Cosmetica {
 			}
 		});
 		// make sure it's loaded in dev
-		if (System.getProperty("cosmetica.token") != null && CosmeticaAPI.isAuthenticated()) {
+		if (System.getProperty("zlcosmetics.token") != null && CosmeticaAPI.isAuthenticated()) {
 			CosmeticaSettings.applyLocalSettings();
 		}
 
@@ -110,7 +110,7 @@ public class Cosmetica {
 		GUIPlayer.addCapeProvider(new CosmeticaCapeProvider());
 
 		// Set up offline cosmetics cache
-		Path cosmeticCacheDir = BlockModelManager.getCacheFile(new ResourceKey("cosmetica", "a").toResourceLocation(), null)
+		Path cosmeticCacheDir = BlockModelManager.getCacheFile(new ResourceKey("zlcosmetics", "a").toResourceLocation(), null)
 				.getParent().getParent().resolve("offlineCache");
 		try {
 			Files.createDirectories(cosmeticCacheDir);
@@ -127,11 +127,11 @@ public class Cosmetica {
 		Cosmetics.registerCosmeticsChangeCallback((either, cosmetics) -> {
 			if (either.entity instanceof Player) {
 				Minecraft.getInstance().tell(() -> {
-					((StateHolder) either.entity).cosmetica$setCosmeticState(cosmetics);
+					((StateHolder) either.entity).zlcosmetics$setCosmeticState(cosmetics);
 				});
 			} else if (either.remotePlayerInfo != null) {
 				Minecraft.getInstance().tell(() -> {
-					((StateHolder) either.remotePlayerInfo).cosmetica$setCosmeticState(cosmetics);
+					((StateHolder) either.remotePlayerInfo).zlcosmetics$setCosmeticState(cosmetics);
 				});
 			}
 		});
@@ -139,7 +139,7 @@ public class Cosmetica {
 		CosmeticaAPI.subscribe(
 				CosmeticaAPI.SubscriptionEvent.PLAYER,
 				UUIDs.fromString(Minecraft.getInstance().getUser().getUuid()),
-				new ResourceKey("cosmetica", "outfit_refresh").toResourceLocation(),
+				new ResourceKey("zlcosmetics", "outfit_refresh").toResourceLocation(),
 				() -> Minecraft.getInstance().execute(Cosmetica::fetchOutfits)
 		);
 		// Also fetch when we log in
@@ -159,7 +159,7 @@ public class Cosmetica {
 					}, Minecraft.getInstance());
 		}
 		// in dev
-		if (System.getProperty("cosmetica.token") != null && CosmeticaAPI.isAuthenticated()) {
+		if (System.getProperty("zlcosmetics.token") != null && CosmeticaAPI.isAuthenticated()) {
 			Minecraft.getInstance().execute(Cosmetica::fetchOutfits);
 			Minecraft.getInstance().execute(WardrobeScreen::fetchOutfitLimit);
 		}
@@ -289,7 +289,7 @@ public class Cosmetica {
 	public static void openWebPanel(String targetPage) {
 		CosmeticaAPI.auth().requestAsync(AuthApi::generateExchangeToken)
 				.thenAccept(token -> {
-					Cosmetica.copyAndOpenURL(System.getProperty("cosmetica.website", "https://cosmetica.cc") + "/login?token=" + token + "&state=" + targetPage);
+					Cosmetica.copyAndOpenURL(System.getProperty("zlcosmetics.website", "https://cosmetica.cc") + "/login?token=" + token + "&state=" + targetPage);
 				})
 				.exceptionally(ex -> {
 					Logging.getInstance().error("Unable to open " + targetPage + " page", ex);
@@ -333,21 +333,21 @@ public class Cosmetica {
 		return Style.create().set(TOOLTIP, authenticated ?
 				Optional.empty() :
 				Optional.of(new Tooltip(
-                        result.map(loginResult -> Text.translatable("tooltip.cosmetica.offline." + loginResult.getCode().toString().toLowerCase(Locale.ROOT)))
-								.orElseGet(() -> Text.translatable("tooltip.cosmetica.offline.offline"))
+                        result.map(loginResult -> Text.translatable("tooltip.zlcosmetics.offline." + loginResult.getCode().toString().toLowerCase(Locale.ROOT)))
+								.orElseGet(() -> Text.translatable("tooltip.zlcosmetics.offline.offline"))
 				)));
 	}*/
 
 	public static Style.MutableStyle authTooltipStyle(boolean authenticated) {
 		return Style.create().set(TOOLTIP, authenticated ?
 				Optional.empty() :
-				Optional.of(new Tooltip(Text.translatable("tooltip.cosmetica.offline"))));
+				Optional.of(new Tooltip(Text.translatable("tooltip.zlcosmetics.offline"))));
 	}
 
 	public static Optional<Tooltip> authTooltip(boolean authenticated) {
 		return authenticated ?
 				Optional.empty() :
-				Optional.of(new Tooltip(Text.translatable("tooltip.cosmetica.offline")));
+				Optional.of(new Tooltip(Text.translatable("tooltip.zlcosmetics.offline")));
 	}
 
 	// ============== //
@@ -374,7 +374,7 @@ public class Cosmetica {
 		};
 	}
 
-	public static final ResourceLocation FALLBACK_TEXTURE = new ResourceLocation("cosmetica", "icon.png");
-	public static final ResourceLocation FALLBACK_OUTFIT_TEXTURE = new ResourceLocation("cosmetica", "textures/default_outfit.png");
-	public static final ResourceLocation LOADING_TEXTURE = new ResourceLocation("cosmetica", "textures/loading.png");
+	public static final ResourceLocation FALLBACK_TEXTURE = new ResourceLocation("zlcosmetics", "icon.png");
+	public static final ResourceLocation FALLBACK_OUTFIT_TEXTURE = new ResourceLocation("zlcosmetics", "textures/default_outfit.png");
+	public static final ResourceLocation LOADING_TEXTURE = new ResourceLocation("zlcosmetics", "textures/loading.png");
 }

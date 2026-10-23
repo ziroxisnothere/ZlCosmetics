@@ -55,7 +55,7 @@ public abstract class OptionsScreenMixin extends Screen {
 						this.addButton(new Button(
 								this.width / 2 - 155, this.height / 6 + 48 - 6,
 								150, 20,
-								Text.translatable("button.cosmetica.home").toMinecraftComponent(),
+								Text.translatable("button.zlcosmetics.home").toMinecraftComponent(),
 								button -> Screens.setScreen(HomeScreen.ID)));
 						return;
 					}
@@ -63,6 +63,6 @@ public abstract class OptionsScreenMixin extends Screen {
 			}
 		}
 
-		Logging.getInstance().warn("Failed to find skin customisation button. Unable to replace with Cosmetica button.");
+		Logging.getInstance().warn("Failed to find skin customisation button. Unable to replace with ZlCosmetics button.");
 	}
 }

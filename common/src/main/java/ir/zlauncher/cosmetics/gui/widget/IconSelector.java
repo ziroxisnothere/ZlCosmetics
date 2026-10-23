@@ -151,9 +151,9 @@ public class IconSelector extends Div {
             super(new ResourceKey(option.cosmetic.getImage().location));
             this.cosmetic = option.cosmetic;
             this.disabled = !option.unlocked || managed || disabled;
-            this.tooltip = managed ? Text.translatable("tooltip.cosmetica.icon.managed")
-                    : disabled ? Text.translatable("tooltip.cosmetica.icon.disabled")
-                    : !option.unlocked ? Text.translatable("tooltip.cosmetica.icon.notUnlocked") : null;
+            this.tooltip = managed ? Text.translatable("tooltip.zlcosmetics.icon.managed")
+                    : disabled ? Text.translatable("tooltip.zlcosmetics.icon.disabled")
+                    : !option.unlocked ? Text.translatable("tooltip.zlcosmetics.icon.notUnlocked") : null;
             this.setTransparent((disabled || !option.unlocked) ? 0.6f : 1);
         }
 

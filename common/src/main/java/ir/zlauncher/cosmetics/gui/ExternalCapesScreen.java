@@ -141,7 +141,7 @@ public class ExternalCapesScreen extends Screen {
                 .tag("cape-server-disabled", Style.create()
                         .set(BACKGROUND_COLOUR, OptionalInt.of(GuiUtils.SHADE_COLOUR))
                         .set(BORDER, GuiUtils.SHADE_POPOUT_BORDER)
-                        .set(TOOLTIP, Optional.of(new Tooltip(Text.translatable("tooltip.cosmetica.modpack_managed")))))
+                        .set(TOOLTIP, Optional.of(new Tooltip(Text.translatable("tooltip.zlcosmetics.modpack_managed")))))
                 .tag("inner-wrapper", Style.create().set(Div.FLOW_DIRECTION, Axis2D.POSITIVE_X))
                 .tag("cape-server-button", Style.create()
                         .set(WIDTH, fixedSize(100)))
@@ -151,7 +151,7 @@ public class ExternalCapesScreen extends Screen {
                         .set(HEIGHT, fixedSize(24)));
     }
 
-    public static final ResourceKey ID = new ResourceKey("cosmetica", "cape_server_settings");
+    public static final ResourceKey ID = new ResourceKey("zlcosmetics", "cape_server_settings");
 
     private static class CapeSetting extends Div {
         CapeSetting(ExternalCapeSetting capeServerSetting, boolean editable) {
@@ -175,22 +175,22 @@ public class ExternalCapesScreen extends Screen {
 //                        new Image(
 //                                "official".equals(capeServerSetting.getService().getValue()) ?
 //                                new ResourceKey("minecraft", "textures/block/grass_block_side.png") :
-//                                new ResourceKey("cosmetica", "textures/capeservers/" + capeServerSetting.getService().getValue() + ".png")
+//                                new ResourceKey("zlcosmetics", "textures/capeservers/" + capeServerSetting.getService().getValue() + ".png")
 //                        ).setTransparent(1).tag("padding-right"),
                             new Label(Text.literal(setting.getName()))
                     ).tag("inner-wrapper"),
                     new Div(
                             new Button(settingEnabled ?
-                                    (useMinecraftText ? Text.GUI_YES : Text.translatable("button.cosmetica.enabled"))
-                                    : (useMinecraftText ? Text.GUI_NO : Text.translatable("button.cosmetica.disabled")),
+                                    (useMinecraftText ? Text.GUI_YES : Text.translatable("button.zlcosmetics.enabled"))
+                                    : (useMinecraftText ? Text.GUI_NO : Text.translatable("button.zlcosmetics.disabled")),
                                     () -> this.enabled.set(!settingEnabled)).setDisabled(!this.editable).tag("cape-server-button", "padding-right"),
-                            new Image(new ResourceKey("cosmetica", "textures/grabbable.png")).setTransparent(1)
+                            new Image(new ResourceKey("zlcosmetics", "textures/grabbable.png")).setTransparent(1)
                     ).tag("inner-wrapper")
             );
         }
 
         boolean useMinecraftText = !Minecraft.getInstance().getLanguageManager().getSelected().getCode().toLowerCase(Locale.ROOT).startsWith("en")
-                && "Enabled".equals(I18n.get("button.cosmetica.enabled"));
+                && "Enabled".equals(I18n.get("button.zlcosmetics.enabled"));
     }
 
     // This iteration uses generic component children. Could squeeze more performance by hardcoding

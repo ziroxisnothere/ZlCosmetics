@@ -112,9 +112,9 @@ public class OutfitPlayer extends Component {
 					new Label(Text.literal(this.outfitName)),
 					new SlideToggle(
 							showingElytra,
-							Text.translatable("button.cosmetica.toggleCloak"),
-							Text.translatable("button.cosmetica.toggleElytra")),
-					new Button(Text.translatable(this.hasOutfit ? "button.cosmetica.changeOutfit" : "button.cosmetica.equipOutfit"), () -> Screens.setScreen(WardrobeScreen.ID))
+							Text.translatable("button.zlcosmetics.toggleCloak"),
+							Text.translatable("button.zlcosmetics.toggleElytra")),
+					new Button(Text.translatable(this.hasOutfit ? "button.zlcosmetics.changeOutfit" : "button.zlcosmetics.equipOutfit"), () -> Screens.setScreen(WardrobeScreen.ID))
 							.setDisabled(!authenticated || disable)// hide tooltip if just disabled
 							.withStyle(Cosmetica.authTooltipStyle(disable||authenticated)),
 					// *.title ensures no "..." for consistency with Cosmetica's buttons

@@ -37,9 +37,9 @@ public class CreateOutfitScreen extends AbstractOutfitEditScreen {
     public CreateOutfitScreen() {
         super(
                 ID.translationKey("screens"),
-                Text.translatable("label.cosmetica.create"),
-                new Tooltip(Text.translatable("tooltip.cosmetica.creatingOutfit")),
-                Text.translatable("toast.cosmetica.outfitCreateError"),
+                Text.translatable("label.zlcosmetics.create"),
+                new Tooltip(Text.translatable("tooltip.zlcosmetics.creatingOutfit")),
+                Text.translatable("toast.zlcosmetics.outfitCreateError"),
                 "", true);
     }
 
@@ -62,5 +62,5 @@ public class CreateOutfitScreen extends AbstractOutfitEditScreen {
                 }, Minecraft.getInstance());
     }
 
-    public static final ResourceKey ID = new ResourceKey("cosmetica", "create_new_outfit");
+    public static final ResourceKey ID = new ResourceKey("zlcosmetics", "create_new_outfit");
 }
