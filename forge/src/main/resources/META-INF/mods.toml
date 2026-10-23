@@ -7,7 +7,7 @@ license = "Apache 2.0"
 modId = "cosmetica"
 version = "${version}"
 displayName = "Cosmetica"
-authors = "Valoeghese, Eyezah"
+authors = "Zirox, Simon, Zenox"
 description = '''
 Custom Cosmetics for Free, Forever.
 '''
