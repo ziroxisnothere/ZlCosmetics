@@ -1,31 +1,28 @@
 {
   "schemaVersion": 1,
-  "id": "cosmetica",
+  "id": "zlcosmetics",
   "version": "${version}",
-  "name": "Cosmetica",
+  "name": "ZlCosmetics",
   "description": "Custom Cosmetics for Free, Forever!",
   "authors": [
-    "Valoeghese",
-    "Eyezah"
+    "Zirox",
+    "Simon",
+    "Zenox"
   ],
-  "contact": {
-    "sources": "https://github.com/Cosmetica-cc/cosmetica-2",
-    "issues": "https://github.com/Cosmetica-cc/cosmetica-2/issues"
-  },
   "license": "Apache 2.0",
-  "icon": "assets/cosmetica/icon.png",
+  "icon": "assets/zlcosmetics/icon.png",
   "environment": "client",
   "entrypoints": {
     "client": [
-      "cc.cosmetica.cosmetica.fabric.CosmeticaFabric"
+      "ir.zlauncher.cosmetics.fabric.CosmeticaFabric"
     ],
     "modmenu": [
-      "cc.cosmetica.cosmetica.fabric.ModMenuCompat"
+      "ir.zlauncher.cosmetics.fabric.ModMenuCompat"
     ]
   },
   "mixins": [
-    "cosmetica-common.mixins.json",
-    "cosmetica-fabric.mixins.json"
+    "zlcosmetics-common.mixins.json",
+    "zlcosmetics-fabric.mixins.json"
   ],
   "depends": {
     "fabric-resource-loader-v1": "*",
