@@ -44,7 +44,7 @@ jobs:
           echo "Enabled platforms: $PLATFORMS"
           for p in $PLATFORMS; do
             if [ -d "$p/build/libs" ]; then
-              rm -f "$p"/build/libs/*-dev*.jar "$p"/build/libs/*-sources*.jar
+              rm -f "$p"/build/libs/*-dev*.jar "$p"/build/libs/*-sources*.jar "$p"/build/libs/*-raw.jar
               cp -v "$p"/build/libs/*.jar release-jars/ || true
             fi
           done
