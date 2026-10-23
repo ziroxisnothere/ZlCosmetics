@@ -1,6 +1,6 @@
 {
   "required": true,
-  "package": "cc.cosmetica.cosmetica.forge.mixin",
+  "package": "ir.zlauncher.cosmetics.forge.mixin",
   "compatibilityLevel": "JAVA_8",
   "minVersion": "0.8",
   "client": [

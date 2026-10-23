@@ -17,10 +17,10 @@
   "environment": "client",
   "entrypoints": {
     "client": [
-      "cc.cosmetica.cosmetica.fabric.CosmeticaFabric"
+      "ir.zlauncher.cosmetics.fabric.CosmeticaFabric"
     ],
     "modmenu": [
-      "cc.cosmetica.cosmetica.fabric.ModMenuCompat"
+      "ir.zlauncher.cosmetics.fabric.ModMenuCompat"
     ]
   },
   "mixins": [

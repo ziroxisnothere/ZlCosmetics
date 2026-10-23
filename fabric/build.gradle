@@ -30,7 +30,7 @@ dependencies {
     include(fabricApi.module("fabric-resource-loader-v0", "${project.fabric_api_version}"))
 
     // Cosmetica Core
-    include(modImplementation "cc.cosmetica:cosmetica-core-fabric:${rootProject.core_version}-${rootProject.minecraft_version}")
+    include(modImplementation "ir.zlauncher.cosmetics-core-fabric:${rootProject.core_version}-${rootProject.minecraft_version}")
     // Kupe
     include(modImplementation "cc.cosmetica:kupe-fabric:${rootProject.kupe_version}-${rootProject.minecraft_version}")
     // Webp Support

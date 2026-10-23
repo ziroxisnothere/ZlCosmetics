@@ -1,0 +1,79 @@
+/*
+ * Copyright 2024, 2025 Cosmetica
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+package ir.zlauncher.cosmetics.mixin;
+//
+//import cc.cosmetica.core.api.texture.CosmeticaTexture;
+//import ir.zlauncher.cosmetics.Cosmetica;
+//import org.spongepowered.asm.mixin.Mixin;
+//import org.spongepowered.asm.mixin.injection.At;
+//import org.spongepowered.asm.mixin.injection.ModifyArg;
+//
+//import javax.imageio.ImageIO;
+//import java.awt.image.BufferedImage;
+//import java.io.ByteArrayInputStream;
+//import java.io.ByteArrayOutputStream;
+//import java.io.IOException;
+//import java.io.InputStream;
+//
+//
+//@Mixin(value = CosmeticaTexture.class, remap = false)
+//public abstract class DebugMixin {
+//
+//    /**
+//     * @reason a
+//     * @author a
+//     */
+//    @ModifyArg(
+//            method = "lambda$load$1",
+//            index = 0,
+//            at = @At(
+//                    value = "INVOKE",
+//                    target = "Lcc/cosmetica/core/api/texture/CosmeticaTexture;readToPNG(Ljava/io/InputStream;Ljava/lang/String;I)Lcc/cosmetica/core/api/texture/CosmeticaTexture$AnimatedInputStream;")
+//    )
+//    private InputStream modifyStream(InputStream original) throws IOException {
+//        return original;
+////        ByteArrayOutputStream os = new ByteArrayOutputStream();
+////        // Write the BufferedImage as PNG to the output stream
+////        ImageIO.write(Cosmetica.cosmetica$debugimage, "webp", os);
+////        // Convert the output stream to a byte array
+////        byte[] imageBytes = os.toByteArray();
+////        // Return a ByteArrayInputStream
+////        return new ByteArrayInputStream(imageBytes);
+//    }
+//
+//    /**
+//     * @reason a
+//     * @author a
+//     */
+//    @ModifyArg(
+//            method = "loadCacheFile",
+//            index = 0,
+//            at = @At(
+//                    value = "INVOKE",
+//                    target = "Lcc/cosmetica/core/api/texture/CosmeticaTexture;readToPNG(Ljava/io/InputStream;Ljava/lang/String;I)Lcc/cosmetica/core/api/texture/CosmeticaTexture$AnimatedInputStream;")
+//    )
+//    private InputStream modifyStream2(InputStream original) throws IOException {
+//        return original;
+////        ByteArrayOutputStream os = new ByteArrayOutputStream();
+////        // Write the BufferedImage as PNG to the output stream
+////        ImageIO.write(Cosmetica.cosmetica$debugimage, "webp", os);
+////        // Convert the output stream to a byte array
+////        byte[] imageBytes = os.toByteArray();
+////        // Return a ByteArrayInputStream
+////        return new ByteArrayInputStream(imageBytes);
+//    }
+//}
