@@ -1,0 +1,8 @@
+{
+  "key.zlcosmetics.customise": "Customise Outfit",
+  "screens.zlcosmetics.outfit_select_anvil.description": "§7Name an Armour Stand to equip a ZlCosmetics outfit",
+  "screens.zlcosmetics.name_tag": "Stylise Name Tag",
+  "tooltip.zlcosmetics.icon.disabled": "You currently have icons disabled, mate",
+  "tooltip.zlcosmetics.icon.managed": "Your icon is currently being managed by modpack settings, mate",
+  "tooltip.zlcosmetics.alreadyEquippedAccessoryMirrored": "You have already equipped this accessory mirrored, mate!"
+}
