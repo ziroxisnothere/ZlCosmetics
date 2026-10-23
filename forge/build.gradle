@@ -35,7 +35,7 @@ dependencies {
     forge "net.minecraftforge:forge:${rootProject.forge_version}"
 
     // Cosmetica Core
-    modImplementation "ir.zlauncher.cosmetics-core-forge:${rootProject.core_version}-${rootProject.minecraft_version}"
+    modImplementation "cc.cosmetica:cosmetica-core-forge:${rootProject.core_version}-${rootProject.minecraft_version}"
     // Kupe Core
     modImplementation "cc.cosmetica:kupe-forge:${rootProject.kupe_version}-${rootProject.minecraft_version}"
     // Webp Support
@@ -45,7 +45,7 @@ dependencies {
     shadowCommon(project(path: ":common", configuration: "transformProductionForge")) { transitive = false }
 
     // Shadow core and kupe
-    shadow "ir.zlauncher.cosmetics-core-forge:${rootProject.core_version}-${rootProject.minecraft_version}"
+    shadow "cc.cosmetica:cosmetica-core-forge:${rootProject.core_version}-${rootProject.minecraft_version}"
     shadow "cc.cosmetica:kupe-forge:${rootProject.kupe_version}-${rootProject.minecraft_version}"
     // Shadow twelvemonkeys
     shadow "com.twelvemonkeys.imageio:imageio-core:${rootProject.imaging_version}"
