@@ -14,8 +14,8 @@ loom {
         convertAccessWideners = true
         //extraAccessWideners.add loom.accessWidenerPath.get().asFile.name
 
-        mixinConfig "cosmetica-common.mixins.json"
-        mixinConfig "cosmetica-forge.mixins.json"
+        mixinConfig "zlcosmetics-common.mixins.json"
+        mixinConfig "zlcosmetics-forge.mixins.json"
 //        mixinConfig "cosmetica-core-common.mixins.json"
 //        mixinConfig "cosmetica-core-forge.mixins.json"
 //        mixinConfig "kupe-common.mixins.json"

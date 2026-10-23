@@ -1,0 +1,30 @@
+{
+  "required": true,
+  "package": "ir.zlauncher.cosmetics.mixin",
+  "compatibilityLevel": "JAVA_21",
+  "minVersion": "0.8",
+  "client": [
+    "KeyboardHandlerMixin",
+    "MinecraftMixin",
+    "attach.LocalPlayerMixin",
+    "attach.PlayerInfoMixin",
+    "attach.RemotePlayerMixin",
+    "button.OptionsScreenMixin",
+    "keybinds.KeyMappingAccessor",
+    "keybinds.LevelRendererTickMixin",
+    "keybinds.OptionsMixin",
+    "snipe.GameRendererMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  },
+  "mixins": [
+    "AbstractScrollContainerAccessor",
+    "attach.ArmourStandMixin",
+    "gui.FakePlayerRendererMixin",
+    "textures.AnimationFrameDevAccessor",
+    "textures.AnimationFrameProdAccessor",
+    "textures.WebpMetadataProviderDevMixin",
+    "textures.WebpMetadataProviderProdMixin"
+  ]
+}
